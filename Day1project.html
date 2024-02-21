@@ -12,18 +12,19 @@
 	<h2>Registration form </h2>
 	<form>
 		<fieldset>
-			<legend>Personal Details</legend>
+			<legend><centre>Personal Details</centre></legend>
 		<label for="name">Participant name:</label>
 		<input type="text" name="" id="name"><br>
+		<br>
 		<label for="college">Participant college:</label>
 		<input type="text" name="" id="college"><br>
-	
+	<br>
 		<label for="year">Participant year:</label>
 		<input type="number" name="" id="year"><br>
-	
+	<br>
 		<label for="number">Participant number:</label>
 		<input type="text" name="" id="number"><br>
-	
+	<br>
 	<label for="email">Participant Email id:</label>
 		<input type="Email" name="" id=" email"><br>
 	
@@ -32,6 +33,7 @@
 			<input type="radio" name="Male" value="Male" >Male
 				<input type="radio" name="Female" value="Female">Female
 		</p>
+		
 	<p>Sports want to play:
 		<input type="checkbox" name="" value="Cricket" checked="checked" /n>Cricket
 		<input type="checkbox" name="" value="Football"  /n>Football
@@ -39,17 +41,46 @@
 		<input type="checkbox" name="" value="Chess" /n>Chess
 		
 	</p><br>
-	<a href="https://www.google.com/search?q=cricbuzz&rlz=1C1ONGR_enIN1001IN1001&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQIxgnGOoCMgkIBBAjGCcY6gIyDwgFEC4YJxjHARjqAhjRAzIJCAYQIxgnGOoCMgkIBxAjGCcY6gIyGwgIEC4YQxjHARi0AhjqAhjIAxjRAxiABBiKBdIBCTIxODRqMGoxNagCCbACAQ&sourceid=chrome&ie=UTF-8">CricHeros Website</a><br>
-	<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fsports-tournament&psig=AOvVaw1sGgZp0mVY7BGHDrvbj7MV&ust=1708589824827000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCID2oqD_u4QDFQAAAAAdAAAAABAE"  alt=" Sports Tournamentment"
-	width="500" height="300">
+	<a href="https://www.google.com/search?q=cricbuzz&rlz=1C1ONGR_enIN1001IN1001&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIJCAMQIxgnGOoCMgkIBBAjGCcY6gIyDwgFEC4YJxjHARjqAhjRAzIJCAYQIxgnGOoCMgkIBxAjGCcY6gIyGwgIEC4YQxjHARi0AhjqAhjIAxjRAxiABBiKBdIBCTIxODRqMGoxNagCCbACAQ&sourceid=chrome&ie=UTF-8">CricHeros Website :</a><br>
+	<img src="Photos/Sports.jpg" width="700" height="400" />
 		
 
 	</form>
 	
 </center>
 </header>
-<h1>Ankit</h1>
 <center><main>
+	<table>
+		<tr>
+			<optgroup>
+			<td>
+		<ol><h4>Breakfast Options:</h4>
+			<li>Milk</li>
+			<li>Mix Fruits</li>
+			<li>CornFlakes</li>
+		</ol>
+		</td>
+		</optgroup>
+		<optgroup>
+		<td>
+		<ul><h4>Lunch Options:</h4>
+			<li>Rajma Chawal</li>
+			<li>Chapatis</li>
+			<li>Raitaa</li>
+		</ul>
+		</td>
+		</optgroup>
+		<optgroup>
+		<td>
+		<ol>
+			<h4>Dinner Options:</h4>
+			<li>Chicken</li>
+			<li>Mutton</li>
+			<li>Egg Curry</li>
+		</ol>
+		</td>
+		</tr>
+		</table>
 	<form>
 		<table border="1">
 	<h2>Sports Details </h2>
@@ -87,13 +118,16 @@
 		<fieldset>
 			<legend>Event summary</legend>
 		
-		<label for="likes">Like Event</label>
-		<input type="submit" name="Hit it!" value="Hit Like!" id="likes"><br>
-		<label for="likes">Not like the  Event</label>
-		<input type="submit" name="Hit it!" value="Hit Don't Like!"  id="likes"><br>
+		<label for="likes"> Event Feedback :</label><br>
+		<input type="checkbox" name="Hit it!" value="Hit Like!" id="likes">Good Event
+		<input type="checkbox" name="Hit it!" value="Dot't Hit Like" id="likes">Average Event
+		<input type="checkbox" name="Hit it!" value="Dot't Hit Like" id="likes">Poor Event<br>
 		<br>
-		<label id="area">Fill your feedback</label>
-	<textarea name="feedback" cols="10" rows="5" id="area"> Enter your feedback </textarea>
+
+		<label id="area" ><h2>Fill your feedback</h2></label><br>
+	<textarea name="feedback" cols="50" rows="10" id="area"> Enter your feedback </textarea><br>
+	<label for="submission"> Submit Button :</label>
+	<button name="Submit">Submit your form</button>
 </fieldset>
 	</form>
 </footer>
