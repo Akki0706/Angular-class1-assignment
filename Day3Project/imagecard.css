@@ -1,0 +1,66 @@
+.personal{
+    height: 250px;
+    width: 280px;
+    box-shadow: 0px 0px 50px rgb(53, 54, 155);
+    text-align: center;
+    border-radius: 5px;
+    justify-content: center;
+}
+.imagecard{
+    height: 300px;
+    width: 280px;
+    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.caption{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    vertical-align: middle;
+    padding: 2px 2px 2px 2px;
+}
+.maincontainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    row-gap: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+@media screen and (max-width: 800px){
+    {
+        .persoanl{
+            width: 33%;
+        }
+    }
+    
+}
+header{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    background-color: aqua;
+    width: 100%;
+    vertical-align: middle;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+}
+footer{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    background-color: aqua;
+    width: 100%;
+    vertical-align: middle;
+    padding-top: 5px;
+    position: fixed;
+    bottom: 0;
+}
