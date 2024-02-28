@@ -1,54 +1,113 @@
 .container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border: 2px solid black;
-    width: 100%;
-    height: 80%;
-    justify-content: space-around;
-    background-color: cornflowerblue;
-}
-.home{
-font-size: 25px;
-font-weight: bold;
-padding: 15px;
-
-}
-.about{
-    font-size: 25px;
-    font-weight: bold;
-    padding: 15px;
-
-}
-.contact{
-    font-size: 25px;
-    font-weight: bold;
-    padding: 15px;
-}
-.logo{
-    font-size: 25px;
-    font-weight: bold;
-    padding: 15px;
-    
-    }
-    .introandpic{
-        display: flex;
-        width: 98%;
-        height: 100%;
-        justify-content: space-between;
-        background-color:beige;
+    width: 97%;
+height: 100%;
 padding: 20px;
-        padding-right:70px ;
+}
+.navbar{
+display: flex;
+font-size: 30px;
+justify-content: space-between;
+font-weight: 700;
+
+
+}
+.remove{
+text-decoration: none;
+}
+.aboutpic{
+display: flex;
+justify-content: space-between;
+width: 100%;
+height: 500px;
+}
+.me{
+display: flex;
+justify-content: center;
+align-items: center;
+padding-left: 20px;
+width:50%;
+font-size: 70px;
+font-weight: bold;
+font-style: italic;
+color: white;
+}
+.image{
+display: flex;
+justify-content: center;
+align-items: center;
+width:50%;
+
+}
+body{
+background-color:black;
+}
+.mypic{
+    height: 400px;
+    width: 400px;
+    border-radius: 200px;
+}
+.About1{
+height: 150px;
+width: 100%;
+color: white;
+font-size: 35px;
+}
+.Skills1{
+    height: 250px;
+    width: 100%;
+    font-size: 35px;
+    color: white;
+    padding-bottom: 20px;
+    margin: 10px;
     }
-    .image{
-        height: 100px;
-        width: 100px;
-        margin-right: 40px;
-        border-radius: 50px;
-        object-fit: cover;
-    }
-    .intro{
-        font-size: 20px;
-        font-weight: bold;
-        font-family: initial;
-    }
+    .Education1{
+        height: 400px;
+        width: 100%;
+        color: white;
+        font-size: 35px;
+        margin-top: 25px;
+        }
+        .Work1{
+            height: 300px;
+            width: 100%;
+            color: white;
+            font-size: 35px;
+            }
+            .Experience1{
+                height: 300px;
+                width: 100%;
+                color: white;
+                font-size: 35px;
+                }
+                .Contact1{
+                    height: 300px;
+                    width: 100%;
+                    color: white;
+                    font-size: 35px;
+                    }
+.Edit1{
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+/* Container for skill bars */
+.skillscontainer1,.skillscontainer2,.skillscontainer3 {
+    width:100%;
+    border-radius:10px ;
+    margin: 10px;
+  }
+  
+  .html {width: 90%; background-color: #04AA6D; border-radius: 10px; text-align: right;} /* Green */
+  .css {width: 70%; background-color: #2196F3; border-radius: 10px; text-align: right;} 
+  .js {width: 30%; background-color: brown; border-radius: 10px; text-align: right;} 
+  
+  .sizefixed{
+    font-size: 25px;
+    margin: 20px 0px 0px 20px;
+  }
+  .listsize{
+    font-size: 20px;
+  }
+  .info{
+    line-height: 10px;
+  }
