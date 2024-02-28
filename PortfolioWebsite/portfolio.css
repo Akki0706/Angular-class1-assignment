@@ -73,7 +73,7 @@ font-size: 35px;
             color: white;
             font-size: 35px;
             }
-            .Experience1{
+            .Projects1{
                 height: 300px;
                 width: 100%;
                 color: white;
@@ -84,13 +84,14 @@ font-size: 35px;
                     width: 100%;
                     color: white;
                     font-size: 35px;
+                    
                     }
 .Edit1{
     font-size: 20px;
     padding-top: 10px;
 }
 
-/* Container for skill bars */
+
 .skillscontainer1,.skillscontainer2,.skillscontainer3 {
     width:100%;
     border-radius:10px ;
@@ -111,3 +112,35 @@ font-size: 35px;
   .info{
     line-height: 10px;
   }
+  .sizefit{
+    display: flex;
+    justify-content: space-around; 
+    margin: 15px;
+  }
+  .sabzi{
+    height: 100%;
+    width: 80%;
+  }
+  .size{
+    font-size: 25px;
+  }
+  .contacthere{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 40px;
+    padding-right: 50px;
+    padding-left: 0px;
+
+    
+  }
+  .email, .instagram, .github , .facebook ,.linkedin , .call, .addrss{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+  }
+  .phone, .address{
+    font-size: 20px;
+    margin: 20px;
+  }
+  
