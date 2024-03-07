@@ -1,0 +1,18 @@
+<h1>Favourite Cricketers:</h1>
+<ul >
+    <li *ngFor="let Cricketer of cricketername">
+        <button type="button" (click)="OnSelect(Cricketer)">
+            <span>
+                    {{Cricketer.id}}
+            </span>
+            <span>
+                    {{Cricketer.name}}
+            </span>
+        </button>
+    </li>
+</ul>
+<div *ngIf="selectedcricket">
+    <h2>{{selectedcricket.name}}
+    </h2>
+</div>
+<app-cricketerdetails [FavCricketer]="selectedcricket"></app-cricketerdetails>
