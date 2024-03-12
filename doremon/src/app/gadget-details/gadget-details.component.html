@@ -1,0 +1,12 @@
+<p>gadget-details works!</p>
+<div *ngIf="gadget">
+    <h3>{{gadget.name}}  details</h3>
+    <h3>toprank : {{gadget.toprank}}</h3>
+    <div>
+    <label for="gadget"> Gadget details :</label>
+    <input id="gadget" [(ngModel)]="gadget.name" placeholder="name">
+    
+    <br>
+    <button type="button" (click)="goBack()">Back</button>
+</div>
+

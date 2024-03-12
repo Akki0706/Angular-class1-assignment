@@ -1,0 +1,13 @@
+<h2>Character Displays</h2>
+<div>
+ <ul>
+    <li *ngFor="let character of Mycharacter">
+        <a routerLink="/characterId/{{character.id}}">
+        <span>{{character.id}}</span>
+        <span>{{character.name}}</span>
+      
+    </a>
+    </li>
+ </ul>
+</div>
+
