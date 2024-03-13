@@ -1,0 +1,15 @@
+h1{
+    display: flex;
+    justify-content: center;
+}
+.navbar{
+font-size: 20px;
+
+width: 400px;
+display: flex;
+justify-content: space-evenly;
+flex-direction: row;
+text-decoration: none;
+font-weight: bold;
+color: blue;
+}
