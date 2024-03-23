@@ -1,0 +1,14 @@
+<h1>List of Books</h1>
+<div>
+    <ul>
+        <!-- //Iterate over lists of books// -->
+       <li *ngFor="let books of MYBOOKS" >
+        <a routerLink="/bookdetail/{{books.id}}">   <span>{{books.name}}</span> </a>
+        <!-- //Give property Binding here. -->
+        <app-book-item [title]="books.title" [author]="books.author" [available]="books.availabilitystatus"></app-book-item>
+       </li>
+
+    </ul>
+   </div>
+<router-outlet></router-outlet>
+   

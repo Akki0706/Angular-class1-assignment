@@ -1,0 +1,27 @@
+
+<h2>News</h2>
+<div *ngIf="newsss">
+  <div>
+    <span>id: {{ newsss.id }} </span><br />
+    <span>Title: {{ newsss.title }}</span
+    >
+    <span>Description: {{ newsss.description }}</span
+    >
+    <span>Category: {{ newsss.category }}</span
+    >
+    <span>Author: {{ newsss.author }}</span
+    >
+    <span>Publication: {{ newsss.publication }}</span>
+  </div>
+
+  <div>
+    <label for="update"> Updated News: </label>
+    <input
+      id="update"
+      [(ngModel)]="newsss.description"
+      placeholder="Description"
+    />
+  </div>
+</div>
+<button type="button" (click)="save()">Save</button>
+<button type="button" (click)="goBack()">Back</button>

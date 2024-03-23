@@ -1,11 +1,10 @@
 
-<div *ngIf="character">
+<div  *ngIf="character">
     <h3>{{character.name}}  details</h3>
     <h3>id : {{character.id}}</h3>
     <div>
-    <label for="character"> Character details :</label>
+    <label  for="character"> Character details :</label>
     <input id="character" [(ngModel)]="character.name" placeholder="name">
-    
-    <br>
+</div>
     <button type="button" (click)="goBack()">Back</button>
 </div>

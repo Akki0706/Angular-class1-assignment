@@ -1,3 +1,3 @@
 export interface gallery{
-    imgpath:string;
+    pathofimage:string;
 }
