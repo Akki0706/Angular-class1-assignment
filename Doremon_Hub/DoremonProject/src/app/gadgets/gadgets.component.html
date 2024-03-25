@@ -1,0 +1,9 @@
+<p>gadgets works!</p>
+<div *ngIf="list">
+    <ul>
+        <li *ngFor="let l of list">
+            <a routerLink="/gadgets/{{l.id}}">{{l.name}}</a>
+            <button type="button" (click)="delete(l)">Delete</button>
+        </li>
+    </ul>
+</div>

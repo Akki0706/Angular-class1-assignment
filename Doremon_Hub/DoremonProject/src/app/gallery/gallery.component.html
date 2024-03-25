@@ -1,0 +1,9 @@
+<p>gallery works!</p>
+<div *ngIf="list">
+    <div *ngFor="let l of list">
+        <img src="{{l.pathofimage}}">
+    </div>
+</div>
+<div>
+    <button type="button" (click)="goback()">Back</button>
+</div>

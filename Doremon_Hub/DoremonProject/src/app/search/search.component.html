@@ -1,0 +1,20 @@
+<p>search works!</p>
+<div>
+    <label for="searching">Search</label>
+    <select id="searching" #opt required>
+        <option></option>
+        <option>characters</option>
+        <option>gadgets</option>
+    </select>
+    <input type="text" #data (input)="search(data.value,opt.value)" >
+    
+</div>
+<div *ngIf="selected$">
+   <div *ngFor="let l of selected$ |async">
+      <div>Type={{opt.value}}</div>
+      <div><a routerLink="/{{opt.value}}/{{l.id}}">{{l.name}}</a></div>
+    </div>
+</div>
+<div>
+    <button type="button" (click)="goback()">Back</button>
+</div>
