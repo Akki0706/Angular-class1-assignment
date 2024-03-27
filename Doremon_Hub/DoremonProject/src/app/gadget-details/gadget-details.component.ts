@@ -22,6 +22,7 @@ export class GadgetDetailsComponent {
 getGadgetdetail(){
   const myid=Number(this.route.snapshot.paramMap.get('id'));
   this.mainservice.getgadgetdetail(myid).subscribe(g=>this.selectedgadget=g);
+  console.log(this.selectedgadget)
 }
 ngOnInit(){
   this.getGadgetdetail();
@@ -34,5 +35,4 @@ save(){
 goback(){
   this.location.back();
 }
-
 }

@@ -24,5 +24,13 @@ export class CharacterComponent {
     this.list=this.list?.filter(character=>character!=l);
     this.mainservice.deletecharacter(l.id).subscribe();
   }
+  // addMember(name:string):void{
+  //   name=name.trim();
+  //   if(!name){
+  //     return
+  //   }
+  //   this.mainservice.addMember({name} as character).subscribe(character => this.list.push(character));
+  }
 
-}
+
+

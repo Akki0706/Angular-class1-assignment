@@ -15,7 +15,8 @@ import { Location } from '@angular/common';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-  constructor(private mainservice:MainServicesService,private location:Location){}
+  constructor(private mainservice:MainServicesService,
+    private location:Location){}
   private searchTerms=new Subject<string>();
   selected$!:Observable<any>;
   option:string="";

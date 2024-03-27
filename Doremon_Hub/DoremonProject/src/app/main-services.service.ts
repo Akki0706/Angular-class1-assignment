@@ -25,8 +25,8 @@ export class MainServicesService {
   getcharacterdetail(id:number):Observable<character>{
     return this.http.get<character>(`${this.url1}/${id}`);
   }
-  getgadgetdetail(id:number):Observable<gadget>{
-    return this.http.get<gadget>(`${this.url2}/${id}`);
+  getgadgetdetail(toprank:number):Observable<gadget>{
+    return this.http.get<gadget>(`${this.url2}/${toprank}`);
   }
   searchdata(term:string,compo:string):Observable<any>{
       const newurl=`api/my${compo}`

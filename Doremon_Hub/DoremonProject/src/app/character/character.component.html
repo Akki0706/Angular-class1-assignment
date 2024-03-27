@@ -1,4 +1,4 @@
-<p>character works!</p>
+
 <div *ngIf="list">
     <ul>
         <li *ngFor="let l of list">
@@ -6,4 +6,9 @@
             <button type="button" (click)="delete(l)">Delete</button>
         </li>
     </ul>
+</div>
+<div>
+    <label for="new-character">Character Name:</label>
+    <input id="new-member" #characterName>
+    <button type="button" (click)="add(character.value); characterName.value =''">Add Member</button>
 </div>

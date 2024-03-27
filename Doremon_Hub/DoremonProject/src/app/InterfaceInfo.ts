@@ -3,8 +3,8 @@ export interface character{
     id:number,
 }
 export interface gadget{
-    id:number;
-    toprank:number;
+    id:number,
+    toprank:number,
     name:string;
    
 }

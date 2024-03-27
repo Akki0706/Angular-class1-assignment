@@ -16,10 +16,10 @@ export class InMemoryDataService implements InMemoryDbService{
   {id: 5, name:'Shizuka'}
     ]
     const mygadgets=[
-      { toprank: 1, name:'Anywaydoor'},
-  { toprank: 2, name:'bamboocopper'},
-  { toprank:3, name:'biglight'},
-  { toprank:4, name:'smalllight'},
+      {id:1, toprank: 1, name:'Anywaydoor'},
+  {id:2, toprank: 2, name:'bamboocopper'},
+  { id:3,toprank:3, name:'biglight'},
+  {id:4, toprank:4, name:'smalllight'},
   
     ]
     const mygallery=[
@@ -33,8 +33,8 @@ export class InMemoryDataService implements InMemoryDbService{
     ]
     return {mycharacters,mygadgets,mygallery};
   }
-  getId<T extends character|gadget>(properTable:T[]):number{
-    return Number(properTable.length>0? Math.max(...properTable.map(t=>t.id))+1 :1);
+  getId<T extends character|gadget>(checkinglength:T[]):number{
+    return Number(checkinglength.length>0? Math.max(...checkinglength.map(t=>t.id))+1 :1);
   }
   }
 

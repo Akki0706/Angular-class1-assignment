@@ -1,13 +1,11 @@
-<p>gadget-details works!</p>
 
 <div *ngIf="selectedgadget">
     <div>
         <div><p>id:{{selectedgadget.id}}</p></div>
-        <div><p>toprank:{{selectedgadget.toprank}}</p></div>
         <div><p>name:{{selectedgadget.name}}</p></div>
     </div>
     <div>
-        <label>Edit:</label>
+        <label>Update:</label>
         <input type="text" [(ngModel)]="selectedgadget.name">
       
         <button type="button" (click)="save()">Save</button>
