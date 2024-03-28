@@ -1,4 +1,4 @@
 export interface Gadgets{
-    toprank:number;
+    id:number;
     name:string;
 }

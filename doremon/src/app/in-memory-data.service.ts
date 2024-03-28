@@ -18,10 +18,10 @@ createDb(){
 {id: 5, name:'Shizuka'}
   ]
   const mygadgets=[
-    { toprank: 1, name:'Anywaydoor'},
-{ toprank: 2, name:'bamboocopper'},
-{ toprank:3, name:'biglight'},
-{ toprank:4, name:'smalllight'},
+    { id: 1, name:'Anywaydoor'},
+{ id: 2, name:'bamboocopper'},
+{ id:3, name:'biglight'},
+{ id:4, name:'smalllight'},
 
   ]
   const mygallery=[
@@ -36,6 +36,7 @@ createDb(){
   return {mycharacters,mygadgets,mygallery};
 }
 getId<T extends Character|Gadgets>(myTable:T[]):number{
-  return Number(myTable.length>0? Math.max(...myTable.map(t=>t.id))+1 :1);
+  return Number
+  (myTable.length > 0 ? Math.max(...myTable.map((t)=>t.id))+1 :1);
 }
 }

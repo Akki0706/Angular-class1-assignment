@@ -1,5 +1,5 @@
 
-<div>
+<div *ngIf="messageservice.message.length">
     <div *ngFor="let msg of messageservice.message">{{msg}}</div>
 </div>
 <button type="button" (click)="goback()">Clear</button>

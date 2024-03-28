@@ -14,20 +14,27 @@ import { CharacterServiceService } from '../character-service.service';
   styleUrl: './character-details.component.css'
 })
 export class CharacterDetailsComponent {
+  
+  character?:Character;
 constructor( private characterservice:CharacterServiceService,
   private route:ActivatedRoute,
   private location:Location){}
 
-  character?:Character
 getCharacter():void{
   const id=Number(this.route.snapshot.paramMap.get('id'))!;
-  this.characterservice.getCharacter(id).subscribe(character => this.character = character);
+  console.log(id)
+  this.characterservice.getChardetail(id).subscribe(character => this.character = character);
 }
 ngOnInit(){
   this.getCharacter();
 }
 goBack():void{
   this.location.back();
+}
+save(){
+  if(this.character){
+    this.characterservice.updatecharacter(this.character).subscribe(() => this.goBack());
+  }
 }
 
 }

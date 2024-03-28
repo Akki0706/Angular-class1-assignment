@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { MsgServiceService } from '../msg-service.service';
-import { NgFor } from '@angular/common';
+import { NgFor ,NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-msg-component',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,NgIf],
   templateUrl: './msg-component.component.html',
   styleUrl: './msg-component.component.css'
 })

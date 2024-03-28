@@ -11,7 +11,7 @@ export const routes: Routes = [
     {path:"gadgets",component:GadgetComponent},
     {path:"gallery",component:GalleryComponent},
     {path:"", redirectTo:"/gallery",pathMatch:"full"},
-    {path:"characterId/:id" ,component:CharacterDetailsComponent},
-    {path:"gadgetId/:id",component:GadgetDetailsComponent}
+    {path:"character/:id" ,component:CharacterDetailsComponent},
+    {path:"gadgets/:id",component:GadgetDetailsComponent}
 
 ];

@@ -1,0 +1,39 @@
+
+<div class="container-fluid">
+  <h2>Angular Reactive Form Practice</h2>
+  <form [formGroup]="registrationform">
+    {{registrationform.value | json}}
+  <div class="form-group">
+    <label >UserName: </label>
+    <input formControlName="userName" type="text" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Password:</label>
+    <input formControlName="Password" type="password" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label> Confirm Password:</label>
+    <input formControlName="ConfirmPassword" type="password" class="form-control">
+  </div>
+
+<div formGroupName="skill">
+  <div class="form-group">
+    <label >Angular Experience Level: </label>
+    <input formControlName="angularLevel"  type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label >GitHub Link: </label>
+    <input formControlName="githubLink"  type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label >Portfolio Link: </label>
+    <input formControlName="portfolioLink"  type="text" class="form-control">
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary">Register</button>
+<button type="button"  (click)="loadSampleData()">Load Data</button>
+</form>
+</div>

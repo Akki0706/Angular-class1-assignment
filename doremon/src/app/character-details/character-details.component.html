@@ -6,5 +6,10 @@
     <label  for="character"> Character details :</label>
     <input id="character" [(ngModel)]="character.name" placeholder="name">
 </div>
+<div>
+    <label>Update:</label>
+    <input type="text" [(ngModel)]="character.name" />
+    <button type="button" (click)="save()">Save</button>
+</div>
     <button type="button" (click)="goBack()">Back</button>
 </div>

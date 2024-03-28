@@ -1,13 +1,18 @@
 <div>
   <h1>Angular Form Practice</h1>
 </div>
-<form #clientForm="ngForm">
+
+
+<form #clientForm="ngForm" (ngSubmit)="onSubmit()" novalidate>      
   {{clientForm.value | json }}
-  <hr/>
+  <hr />
   {{clientModel |json}}
+
+
   <div class="form-group">
     <label>Name:</label>
-    <input type="text" class="form-control"  name="name" [(ngModel)]="clientModel.name"/>
+    <input #name="ngModel" required type="text" [class.is-invalid]="name.invalid && name.touched" class="form-control" name="name" [(ngModel)]="clientModel.name" /> 
+    <small [class.d-none]="name.valid || name.untouched" class="text-danger" >Name must be required</small> <!---Here in ngModel two way binding is used and if we make changes in clientModel then it reflects in client form also-->
   </div>
 
   <div class="form-group">
@@ -17,43 +22,39 @@
 
   <div class="form-group">
     <label>Phone:</label>
-    <input type="tel" class="form-control" name="phone" [(ngModel)]="clientModel.phone"/>
+    <input #phone="ngModel" required [class.is-invalid]="phone.invalid && phone.touched" type="tel" class="form-control" pattern="^\d{10}$" name="phone" [(ngModel)]="clientModel.phone" />
+    <div *ngIf="phone.errors && (phone.valid || phone.touched)">
+      <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required</small>
+      <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be of 10 digits</small>
+    </div>
   </div>
   <div class="form-group">
-    <select class="custom-select">
-      <option selected>Required for the task:</option>
+
+    <select (blur)="validateTask(task.value)" (change)="validateTask(task.value)" required #task="ngModel" [class.is-invalid]="taskHasError && task.touched" class="custom-select" name="task" [(ngModel)]="clientModel.task">
+      <option value="default">Required for the task:</option>
       <option *ngFor="let task of tasks">{{task}}</option>
     </select>
+    <small class="text-danger" [class.d-none]="!taskHasError || task.untouched">Task is Required</small>
   </div>
   <div>
-    <label>Project time Peference</label>
+    <label>Project time Peference :</label>
     <div class="form-check">
-      <input
-      class="form-check-input"
-      type="radio"
-      name="timePreference"
-      value="weekdays" name="timePreference" [(ngModel)]="clientModel.timePreference" />
+      <input class="form-check-input" type="radio" name="timePreference" value="weekdays" name="timePreference"
+        [(ngModel)]="clientModel.timePreference" />
       <label class="form-check-label">Weekdays</label>
     </div>
     <div>
-      <input
-      class="form-check-input"
-      type="radio"
-      name="timePreference"
-      value="weekends" name="timePreference" [(ngModel)]="clientModel.timePreference" />
+      <input class="form-check-input" type="radio" name="timePreference" value="weekends" name="timePreference"
+        [(ngModel)]="clientModel.timePreference" />
       <label class="form-check-label">Weekends</label>
     </div>
-    </div>
-    <div class="form-check">
-      <input
-      class="form-check-input"
-      type="checkbox"
-      name="notify"
-      [(ngModel)]="clientModel.notify" />
-      <label class="form-check-label"> Notify Me </label>
-    </div>
-  
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="notify" [(ngModel)]="clientModel.notify" />
+    <label class="form-check-label"> Notify Me </label>
+  </div>
 
-<button class="btn-btn-primary" type="submit">Submit</button>
+
+  <button [disabled]="clientForm.form.invalid || taskHasError" class="btn btn-primary" type="submit">Submit</button>
 
 </form>

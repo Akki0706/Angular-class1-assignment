@@ -1,24 +1,85 @@
 import { Injectable } from '@angular/core';
-import { Observable,of } from 'rxjs';
+import { Observable,of,catchError,tap } from 'rxjs';
 import { Gadgets } from './gadget/gagdet';
 import { MyGadgets } from './mygagdet';
 import { MsgServiceService } from './msg-service.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GadgetServiceService {
-
-  constructor(private messageservice:MsgServiceService) { }
-  getgadget():Observable<Gadgets[]>{
-    this.messageservice.addmessage("Displaying Gadgets....")
-    return of(MyGadgets);
+  private gadgetUrl='api/mygadgets';
+  httpOptions={
+    headers:new HttpHeaders({'Content-Type': 'application/json'}),
   }
-  getCharacter(id:number):Observable<Gadgets>{
-    const gadgets=MyGadgets.find(gadet => gadet.toprank === id)!;
-    this.messageservice.addmessage(`Gadget ${id}  is displayed....`)
-    return of(gadgets);
 
-  }
+  constructor(private messageservice:MsgServiceService,
+    private http : HttpClient) { }
+
+    private handleError<T>(operation = 'operation', result?: T) {
+      return (error: any): Observable<T> => {
+        console.log(error);
+        return of(result as T);
+      };
+    }
+  
+    private log(message: string) {
+      this.messageservice.addmessage(`Gadget Service: ${message}`);
+    }
+
+    getgadget(): Observable<Gadgets[]> {
+      return this.http.get<Gadgets[]>(this.gadgetUrl).pipe(
+        tap((_) => this.log('Gadgets Fetched')),
+        catchError(this.handleError<Gadgets[]>('getgadget', []))
+      );
+    }
+    getGaddetail(id1: number): Observable<Gadgets> {
+      const url = `${this.gadgetUrl}/${id1}`;
+      return this.http.get<Gadgets>(url).pipe(
+        tap((_) => this.log(`Gadget Fetched: ${id1}`)),
+        catchError(this.handleError<Gadgets>(`getGaddetail ${id1}`))
+      );
+    }
+    updategadget(gadget: Gadgets): Observable<any> {
+      return this.http.put(this.gadgetUrl, gadget, this.httpOptions).pipe(
+        tap((_) => this.log('Updated Gadget')),
+        catchError(this.handleError<Gadgets>('updategadget gadget'))
+      );
+    }
+  
+    addgadget(gad: Gadgets): Observable<Gadgets> {
+      return this.http
+        .post<Gadgets>(this.gadgetUrl, gad, this.httpOptions)
+        .pipe(
+          tap((newMember: Gadgets) =>
+            this.log(`added gadget with id=${newMember.id}`)
+          ),
+          catchError(this.handleError<Gadgets>('addMember'))
+        );
+    }
+    deleteGad(id: number): Observable<Gadgets> {
+      const url = `${this.gadgetUrl}/${id}`;
+      return this.http.delete<Gadgets>(url, this.httpOptions).pipe(
+        tap((_) => this.log(`Deleted Gadgets id=${id}`)),
+        catchError(this.handleError<Gadgets>('deleteMember'))
+      );
+    }
+      searchgadgets(word: string): Observable<Gadgets[]> {
+        if (!word.trim()) {
+          return of([]);
+        }
+        return this.http
+          .get<Gadgets[]>(`${this.gadgetUrl}/?name=${word}`)
+          .pipe(
+            tap((x) =>
+              x.length
+                ? this.log(`Found members matching ${word}`)
+                : this.log(`No members matching ${word}`)
+            ),
+            catchError(this.handleError<Gadgets[]>('searchMembers', []))
+          );
+      }
+
 
 }

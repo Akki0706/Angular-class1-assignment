@@ -15,20 +15,26 @@ import { GadgetServiceService } from '../gadget-service.service';
   styleUrl: './gadget-details.component.css'
 })
 export class GadgetDetailsComponent {
-
+  gadget?:Gadgets;
   constructor( private gadgetservice:GadgetServiceService,
     private route:ActivatedRoute,
     private location:Location){}
   
-    gadget?:Gadgets
+  
   getGadget():void{
     const id=Number(this.route.snapshot.paramMap.get('id'))!;
-    this.gadgetservice.getCharacter(id).subscribe(gadget => this.gadget = gadget);
+    console.log(id);
+    this.gadgetservice.getGaddetail(id).subscribe(gadget => this.gadget = gadget);
   }
   ngOnInit(){
     this.getGadget();
   }
   goBack():void{
     this.location.back();
+  }
+  save(){
+    if(this.gadget){
+      this.gadgetservice.updategadget(this.gadget).subscribe(()=>this.goBack());
+    }
   }
 }

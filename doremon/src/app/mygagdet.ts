@@ -1,7 +1,7 @@
 import { Gadgets } from "./gadget/gagdet";
 export const MyGadgets : Gadgets[]=[
-{ toprank: 1, name:'Anywaydoor'},
-{ toprank: 2, name:'bamboocopper'},
-{ toprank:3, name:'biglight'},
-{ toprank:4, name:'smalllight'},
+{ id: 1, name:'Anywaydoor'},
+{ id: 2, name:'bamboocopper'},
+{ id:3, name:'biglight'},
+{ id:4, name:'smalllight'},
 ];
