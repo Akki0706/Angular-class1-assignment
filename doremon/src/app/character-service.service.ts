@@ -71,8 +71,8 @@ deletechar(id: number): Observable<Character> {
       .pipe(
         tap((x) =>
           x.length
-            ? this.log(`Members Found ${word}`)
-            : this.log(`Members not found ${word}`)
+            ? this.log(`Characters Found ${word}`)
+            : this.log(`Characters not found ${word}`)
         ),
         catchError(this.handleError<Character[]>('searchMembers', []))
       );

@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { FormArray } from '@angular/forms';
 
 
 @Component({
@@ -36,6 +37,13 @@ get email(){
   return this.registrationform.get('email');
 }
  constructor(private fb : FormBuilder){}
+ get additionalEmails(){
+  return this.registrationform.get('additionalEmails') as FormArray;
+ }
+
+ addAdditionalEmail(){
+  this.additionalEmails.push(this.fb.control(''));
+ }
 ngOnInit(){
   this.registrationform = this.fb.group({
     userName : ['Mohan',[Validators.required,Validators.minLength(3),forbiddenNameValidator(/angular/)]],
@@ -48,18 +56,22 @@ ngOnInit(){
       angularLevel : [''],
       githubLink : [''],
       portfolioLink: ['']
-    })
+    }),
+  additionalEmails : this.fb.array([])
   } , {validator : PasswordValidator})
 }
 
 
- loadSampleData(){
+ loadSampleData(){                    //This is used to load the data when we refresh the page which we want to fill. Patch value is used to fill the data which we want to fill.//
   this.registrationform.patchValue({
     userName:'Mohan',
     Password:'Mohan129',
     ConfirmPassword:'Mohan129'
   })
  }
+ onsubmit(){
+  console.log(this.registrationform.value);
+}
 
 }
 function forbiddenNameValidator(forbiddenName:RegExp):ValidatorFn{
