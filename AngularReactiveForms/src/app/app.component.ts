@@ -28,7 +28,7 @@ export class AppComponent {
     portfolioLink: new FormControl('')
   })
  })*/
- registrationform!:FormGroup;
+ registrationform!:FormGroup;  //About ! sign--  it's a way to tell TypeScript to trust that the property will be assigned a value at runtime, even if it's not assigned in the constructor or at declaration time.//
  get userName(){
   return this.registrationform.get('userName');
 }
@@ -40,6 +40,13 @@ get email(){
  get additionalEmails(){
   return this.registrationform.get('additionalEmails') as FormArray;
  }
+
+ //constructor(private fb:FormBuilder){}
+ //get additionalEmails(){
+  //return this.registrationform.get('additionalEmails') as FormArray;
+ //} addAdditionalEmails(){this.additionalEmails.push(this.fb.control(''));}
+ //
+ 
 
  addAdditionalEmail(){
   this.additionalEmails.push(this.fb.control(''));
@@ -71,6 +78,7 @@ ngOnInit(){
  }
  onsubmit(){
   console.log(this.registrationform.value);
+  
 }
 
 }
