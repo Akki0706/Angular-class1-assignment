@@ -1,0 +1,5 @@
+![Screenshot_92](https://github.com/Akki0706/Angular-class1-assignment/assets/126375876/d2b0e391-2b50-4473-ac64-98b9d1b0b901)
+![Screenshot_93](https://github.com/Akki0706/Angular-class1-assignment/assets/126375876/74600826-aeab-4c40-906d-a41b120d6f0e)
+![Screenshot_95](https://github.com/Akki0706/Angular-class1-assignment/assets/126375876/475e805d-20f4-431a-89f5-103c32425a68)
+![Screenshot_99](https://github.com/Akki0706/Angular-class1-assignment/assets/126375876/c92a013e-bd41-4692-911b-d6bf367ef7f7)
+![Screenshot_92](https://github.com/Akki0706/Angular-class1-assignment/assets/126375876/4f8cc245-eabf-448a-ab6f-6cd96f9a9fb8)
