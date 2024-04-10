@@ -9,7 +9,7 @@
     <input formControlName="userName" type="text" class="form-control" [class.is-invalid]="userName?.invalid && userName?.touched">
     <div *ngIf="userName?.invalid && userName?.touched">
       <small class="text-danger" *ngIf="userName?.errors?.['required']">Enter username</small>
-      <small class="text-danger" *ngIf="userName?.errors?.['minlength']">Type alleast three charachers to complete  the name.</small>
+      <small class="text-danger" *ngIf="userName?.errors?.['minlength']">Type alleast three characters to complete  the name.</small>
       <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">Not allowed</small>
     </div>
 

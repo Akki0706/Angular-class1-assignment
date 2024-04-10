@@ -1,74 +1,101 @@
-<form [formGroup]="doraemonForm" (ngSubmit)="onSubmit()">
-  <!-- Personal Information -->
-  <h2>Personal Information:</h2>
-  <div formGroupName="personalInfo">
-    <div>
-      <label>Name:</label>
-      <input type="text" formControlName="name">
-      <div *ngIf="f.personalInfo.name.invalid && (f.personalInfo.name.dirty || f.personalInfo.name.touched)">
-        <div *ngIf="f.personalInfo.name.errors.required">Name is required.</div>
-        <div *ngIf="f.personalInfo.name.errors.minlength">Name must be at least 4 characters long.</div>
-        <div *ngIf="f.personalInfo.name.errors.forbiddenName">Name must not be a well-known character from the series.</div>
-      </div>
-    </div>
-    <div>
-      <label>Date of Birth:</label>
-      <input type="date" formControlName="dob">
-      <div *ngIf="f.personalInfo.dob.invalid && (f.personalInfo.dob.dirty || f.personalInfo.dob.touched)">
-        <div *ngIf="f.personalInfo.dob.errors.required">Date of Birth is required.</div>
-        <div *ngIf="f.personalInfo.dob.errors.invalidAge">Sorry, you must be at least 13 years old to register!</div>
-      </div>
-    </div>
-    <div>
-      <label>Gender:</label>
-      <div>
-        <label><input type="radio" formControlName="gender" value="male"> Male</label>
-        <label><input type="radio" formControlName="gender" value="female"> Female</label>
-        <label><input type="radio" formControlName="gender" value="other"> Other</label>
-      </div>
-      <div *ngIf="f.personalInfo.gender.invalid && (f.personalInfo.gender.dirty || f.personalInfo.gender.touched)">
-        <div *ngIf="f.personalInfo.gender.errors.required">Gender is required.</div>
-      </div>
-    </div>
-  </div>
+<div class="container-fluid">
+  <h2>Doremon Fan Club Registration Form</h2>
+  <form [formGroup]="registrationform" (ngSubmit)="onsubmit()">
+    {{registrationform.value | json}}
 
-  <!-- Account Information -->
-  <h2>Account Information:</h2>
-  <div formGroupName="accountInfo">
-    <div>
-      <label>Email:</label>
-      <input type="email" formControlName="email">
-      <div *ngIf="f.accountInfo.email.invalid && (f.accountInfo.email.dirty || f.accountInfo.email.touched)">
-        <div *ngIf="f.accountInfo.email.errors.required">Email is required.</div>
-        <div *ngIf="f.accountInfo.email.errors.email">Invalid email format.</div>
+    <div class="form-group">
+      <label>Username</label>
+      <input formControlName="username" type="text" class="form-control" [class.is-invalid]="username?.invalid && username?.touched">
+      <div *ngIf="username?.invalid && username?.touched">
+        <small class="text-danger" *ngIf="username?.errors?.['required']">Enter username</small>
+        <small class="text-danger" *ngIf="username?.errors?.['minlength']">Type atleast four characters to complete  the name.</small>
+     
       </div>
     </div>
-    <div>
-      <label>Password:</label>
-      <input type="password" formControlName="password">
-      <div *ngIf="f.accountInfo.password.invalid && (f.accountInfo.password.dirty || f.accountInfo.password.touched)">
-        <div *ngIf="f.accountInfo.password.errors.required">Password is required.</div>
-        <div *ngIf="f.accountInfo.password.errors.pattern">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</div>
+    <div class="form-group">
+      <label>Date of Birth:</label>
+      <input
+        [class.is-invalid]="DOB?.invalid && DOB?.touched"
+        formControlName="DOB"
+        type="date"
+        class="form-control"
+      />
+      
+      <div *ngIf="DOB?.invalid && DOB?.touched">
+        <small class="text-danger" *ngIf="DOB?.errors?.['required']"
+          >DOB is required</small
+        >
+        <small class="text-danger" *ngIf="DOB?.errors?.['minAge']"
+          >Sorry time travelers, you must be at least 13 years old to register!</small
+        >
       </div>
     </div>
-    <div>
-      <label>Confirm Password:</label>
-      <input type="password" formControlName="confirmPassword">
-      <div *ngIf="f.accountInfo.confirmPassword.invalid && (f.accountInfo.confirmPassword.dirty || f.accountInfo.confirmPassword.touched)">
-        <div *ngIf="f.accountInfo.confirmPassword.errors.required">Confirm Password is required.</div>
-        <div *ngIf="f.accountInfo.confirmPassword.errors.passwordMismatch">Passwords must match.</div>
+    <div class="form-group">
+
+      <label>Gender:</label><br />
+      <div class="form-check">
+        <input formControlName="Gender" type="radio" class="form-check-input" id="male" value="Male">
+        <label for="male" class="form-check-label">Male</label>
+      </div>
+      <div class="form-check">
+        <input formControlName="Gender" type="radio" class="form-check-input" id="female" value="Female">
+        <label for="female" class="form-check-label">Female</label>
       </div>
     </div>
-    <div>
-      <label>Favorite Doraemon Gadget:</label>
-      <select formControlName="favoriteGadget">
-        <option value="">Select</option>
-        <option value="Anywhere Door">Anywhere Door</option>
-        <option value="Bamboo Copter">Bamboo Copter</option>
-        <option value="Take-copter">Take-copter</option>
-        <option value="Dokodemo Door">Dokodemo Door</option>
-      </select>
+
+    <div formGroupName="AccountInfo">
+      <div class="form-group">
+        <label>Email:</label>
+        <input formControlName="Email" type="email" class="form-control">
+        <button type="submit" class="btn btn-secondary">Add more Emails</button>
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input formControlName="password" type="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>ConfirmPassword:</label>
+        <input formControlName="confirmPassword" type="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <select class="custom-select" required name="Gadget" formControlName="FavouriteGadget">
+          <option value="FavouriteGadget">Select one of Gadget:</option>
+          <option *ngFor="let Gadget of Gadgets">{{Gadget}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+
+        <label>MemberShip Type:</label><br />
+        <div class="form-check">
+          <input formControlName="Membership" type="radio" class="form-check-input" id="simple"
+            value="Simple MemberShip">
+          <label for="simple" class="form-check-label">Simple MemberShip</label>
+        </div>
+        <div class="form-check">
+          <input formControlName="Membership" type="radio" class="form-check-input" id="other"
+            value="Premium MemberShip">
+          <label for="other" class="form-check-label">Premium MemberShip</label>
+        </div>
+      </div>
     </div>
-  </div>
-  <button type="submit" [disabled]="doraemonForm.invalid">Submit</button>
-</form>
+    <div formGroupName="NotificationPreference">
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" formControlName="notify" type="checkbox">
+          <label class="form-check-label">Notify Me</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <select class="custom-select" name="Communicate" formControlName="communicationMethod">
+          <option value="communicationMethod">Prefereed Communication Method:</option>
+          <option *ngFor="let Communication of Communicate">{{Communication}}</option>
+        </select>
+      </div>
+    </div>
+<br>
+    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="button" (click)="loadSampleData()">Load Data</button>
+  </form>
+</div>
