@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <title>Products</title>
+<body>
+    <h1>Product List</h1>
+    <p>
+        <ul>
+      <%  Products.forEach(Product=>{%>
+        <li><%=Product.name%>
+        <%=Product.Price%>
+        <%=Product.Description%>
+        <%if(Product.Price>10000){%>
+            <p>Premium</p>
+          <% }%>
+       <%})%>
+       
+        </li>
+        </ul>
+    </p>
+</body>
+</html>

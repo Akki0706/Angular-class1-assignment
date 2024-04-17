@@ -1,0 +1,39 @@
+
+
+body {
+    background-color: bisque;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+p {
+    text-align: center;
+    color: red;
+    font-size: 15px;
+}
+
+.detail {
+    text-align: center;
+    margin-top: 50px;
+}
+
+label {
+    font-size: 15px;
+    color: #333;
+}
+
+img {
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

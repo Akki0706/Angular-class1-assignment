@@ -1,0 +1,67 @@
+   
+       body {
+        background-color: aqua;
+        font-family: Arial, sans-serif;
+    }
+    
+    form {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+  
+    }
+    
+    label {
+        font-size: 18px;
+        color: #333;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="file"],
+    button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    
+    input[type="file"] {
+        background-color: transparent;
+    }
+    
+    button[type="submit"] {
+        background-color: rgb(61, 145, 61);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style-type: none;
+    }
+    
+    h3 {
+        color: red;
+        margin-top: 20px;
+    }
