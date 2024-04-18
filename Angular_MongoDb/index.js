@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 
 const app = express();
 app.use(express.static('public'));
-mongoose.connect('mongodb+srv://ankitk54329:Atlas@123@clustermongodbprojects.e9qufvm.mongodb.net/?retryWrites=true&w=majority&appName=ClusterMongodbProjects/my_database');
+mongoose.connect('mongodb+srv://vanshmisra2:Vansh9415@cluster0.r4y4zjw.mongodb.net/sdiufh');
 
 const db = mongoose.connection;
 db.on('error' , ()=>{
@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
     age : Number,
     email:String
 })
+
 
 const User = mongoose.model('User',userSchema);
 

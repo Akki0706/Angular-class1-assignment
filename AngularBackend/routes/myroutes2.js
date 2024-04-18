@@ -22,6 +22,7 @@ let members={
 }
 
 router.get("/" ,(req,res)=>{
+    
     res.send(members);
 })
 

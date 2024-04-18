@@ -1,7 +1,9 @@
 
 const express = require('express');
 const router = express.Router();
-
+//const express=require('express);
+//const router=express.Router();
+//let members=[{}]
 let members = [
     {
         firstname : "Vansh",
@@ -32,7 +34,14 @@ let members = [
 router.get("/" , (req,res)=>{
     res.send(members);
 })
-
+//router.get("/",(req,res)=>{
+    // res.send(members);
+//})
+//router.get("/":email",(req,res)=>{
+//const email=req.params.email;
+//let filtered_email=members.filter(member=>member.email===email);
+//})
+//
 router.get("/:email" , (req,res)=>{
     const email = req.params.email;
     let filtered_members = members.filter(member => member.email === email);

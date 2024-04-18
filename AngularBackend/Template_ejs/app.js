@@ -1,8 +1,8 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); // Body parser is use to pass the jason data.
 const {body , validationResult} = require('express-validator');
-const multer = require('multer');
-const path = require('path');
+const multer = require('multer'); //Multer is used to store the photos and upload it.
+const path = require('path');  // to provide the path to the uploads.
 
 const app = express();
 app.set('view engine','ejs');
@@ -17,6 +17,7 @@ const storage = multer.diskStorage({
         cb(null,Date.now()+path.extname(file.originalname));
     }
 })
+
 
 const uploads = multer({storage:storage});
 
