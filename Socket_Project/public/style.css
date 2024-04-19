@@ -1,0 +1,70 @@
+body {
+    background-color: #292929;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#chat-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#form {
+    margin-top: 20px;
+}
+
+#input {
+    width: calc(100% - 80px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Styling for messages */
+#messages li {
+    padding: 5px 0;
+    border-bottom: 1px solid #555;
+}
+
+#messages li:last-child {
+    border-bottom: none;
+}
+
+/* Styling for username */
+#messages li span {
+    font-weight: bold;
+}
+
+/* Styling for system messages */
+.system-message {
+    color: red;
+    font-style: italic;
+}

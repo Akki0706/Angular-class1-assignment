@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CharacterServiceService {
-  private characterUrl='api/mycharacters';
+  private characterUrl='http://localhost:5000/characters';
   httpOptions={headers:new HttpHeaders({'Content-type': 'application/json'}),};
 
   constructor(private messageservice:MsgServiceService,
@@ -40,7 +40,8 @@ return this.http.get<Character[]>(this.characterUrl).pipe(
   );
 }
 updatecharacter(char: Character): Observable<any> {
-  return this.http.put(this.characterUrl, char, this.httpOptions).pipe(
+  const url = `${this.characterUrl}/${char.char_id}`;
+  return this.http.put(url, char, this.httpOptions).pipe(
     tap((_) => this.log('Updated Character')),
     catchError(this.handleError<Character>('updatechar character'))
   );
@@ -50,7 +51,7 @@ addchar(char: Character): Observable<Character> {
     .post<Character>(this.characterUrl, char, this.httpOptions)
     .pipe(
       tap((newMember: Character) =>
-        this.log(`added character with id=${newMember.id}`)
+        this.log(`added character with id=${newMember.char_id}`)
       ),
       catchError(this.handleError<Character>('addMember'))
     );
@@ -67,7 +68,7 @@ deletechar(id: number): Observable<Character> {
       return of([]);
     }
     return this.http
-      .get<Character[]>(`${this.characterUrl}/?name=${word}`)
+      .get<Character[]>(`${this.characterUrl}/search?name=${word}`)
       .pipe(
         tap((x) =>
           x.length

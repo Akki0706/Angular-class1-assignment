@@ -1,4 +1,4 @@
 export interface Gadgets{
-    id:number;
+    gad_id:number;
     name:string;
 }

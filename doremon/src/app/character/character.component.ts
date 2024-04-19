@@ -32,6 +32,6 @@ add(name:string):void{
 }
 delete(char:Character):void{
   this.Mycharacter=this.Mycharacter?.filter((m)=>m!=char);
-  this.characterservice.deletechar(char.id).subscribe();
+  this.characterservice.deletechar(char.char_id).subscribe();
 }
 }

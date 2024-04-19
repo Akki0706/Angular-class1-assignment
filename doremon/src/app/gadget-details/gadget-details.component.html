@@ -1,7 +1,7 @@
 
 <div *ngIf="gadget">
     <h3>{{gadget.name}}  details</h3>
-    <h3>id : {{gadget.id}}</h3>
+    <h3>id : {{gadget.gad_id}}</h3>
     <div>
     <label for="gadget"> Gadget details :</label>
     <input id="gadget" [(ngModel)]="gadget.name" placeholder="name">

@@ -34,7 +34,7 @@ addgadget(name: string): void {
 }
 deletegad(gad: Gadgets): void {
   this.MyGadget = this.MyGadget.filter((m) => m != gad);
-  this.gadgetservice.deleteGad(gad.id).subscribe();
+  this.gadgetservice.deleteGad(gad.gad_id).subscribe();
 }
 
 }

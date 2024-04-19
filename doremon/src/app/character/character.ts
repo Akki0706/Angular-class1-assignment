@@ -1,5 +1,5 @@
 export interface Character{
-    id:number;
+    char_id:number;
     name:string;
     
 }
