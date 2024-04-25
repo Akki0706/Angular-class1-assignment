@@ -35,15 +35,13 @@ exports.deleteApplication = async (req,res)=>{
 
 exports.updateApplication = async (req,res)=>{
     try{
-        console.log(req.body)
-        const application = await ApplicationService.updateApplication(req.params.id,req.body);
-        console.log(application)
+        const application = await ApplicationService.updateApplication(req.user_email,req.params.id,req.body);
         if(!application){
             res.status(404).json({message:'Application not found'});
         }
         res.json(application);
     }catch(error){
-        res.status(500).json(error.message);
+        res.status(500).json({message:'Failed to update applications..'});
     }
 }
 
