@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <!-- Title -->
+  <h2>Angular Reactive Form</h2>
+  
+  <!-- Form -->
+  <form [formGroup]="registrationform" (ngSubmit)="onSubmit()">
+  
+    <!-- Username Field -->
+    <div class="form-group">
+      <label>Name: </label>
+      <input formControlName="userName" type="text" class="form-control" [class.is-invalid]="userName?.invalid && userName?.touched">
+      <!-- Validation Messages -->
+      <div *ngIf="userName?.invalid && userName?.touched">
+        <small class="text-danger" *ngIf="userName?.errors?.['required']">Enter username</small>
+        <small class="text-danger" *ngIf="userName?.errors?.['minlength']">Type at least three characters to complete the name.</small>
+        <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">Not allowed</small>
+      </div>
+    </div>
+    
+    <!-- Email Field -->
+    <div class="form-group">
+      <label>E-mail</label>
+      <input formControlName="email" [class.is-invalid]="registrationform.controls['email'].invalid && registrationform.controls['email'].touched" type="email" class="form-control" />
+      <!-- Validation Messages -->
+      <small class="text-danger" *ngIf="email?.errors?.['required'] && email?.touched">Email is Required</small>
+      <small *ngIf="email?.errors?.['email'] && email?.touched" class="text-danger">Invalid email</small>
+    </div>
+    
+    <!-- Password Field -->
+    <div class="form-group">
+      <label>Password:</label>
+      <input formControlName="Password" type="password" class="form-control">
+    </div>
+    
+    <!-- Confirm Password Field -->
+    <div class="form-group">
+      <label> Confirm Password:</label>
+      <input formControlName="ConfirmPassword" type="password" class="form-control" [class.is-invalid]="registrationform.errors?.['misMatch']">
+      <!-- Validation Message -->
+      <small class="text-danger" *ngIf="registrationform.errors?.['misMatch']">Passwords do not match</small>
+    </div>
+    
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="registrationform.invalid">Submit</button>
+    
+    <!-- Success Message -->
+    <div *ngIf="showSuccessMessage" class="alert alert-success mt-3">
+      Submission is done successfully..!
+    </div>
+  </form>
+</div>
