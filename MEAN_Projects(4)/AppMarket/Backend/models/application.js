@@ -3,7 +3,7 @@ const applicationSchema = new mongoose.Schema({
 
     user:{
         type:mongoose.Schema.Types.ObjectId,
-    
+        required:true,
         ref:'User'
     },
     appName:{
@@ -11,13 +11,18 @@ const applicationSchema = new mongoose.Schema({
         required:true,
         trim:true
     },
+
+    visibility:{
+        type:Boolean,
+        default:true
+    },
     description:{
         type:String,
         required:true
     },
 
     releaseDate:{
-        type:String,
+        type:Date,
         required:true
     },
 
@@ -62,6 +67,15 @@ applicationSchema.virtual('averageRating').get(function() {
     return totalSum / totalRatings;
 
 })
+
+applicationSchema.methods.incrementDownloadCount = function(){
+    this.downloadCount++;
+    return this.save();
+};
+applicationSchema.methods.decrementDownloadCount = function(){
+    this.downloadCount--;
+    return this.save();
+};
 
 const Applications = mongoose.model('Applications',applicationSchema);
 module.exports=Applications;

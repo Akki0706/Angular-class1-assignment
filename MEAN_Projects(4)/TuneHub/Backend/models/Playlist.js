@@ -5,7 +5,7 @@ const playlistSchema = new mongoose.Schema({
         required:true,
         ref:'User'
     },
-    playistName:{
+    playListName:{
         type:String,
         required:true
     },

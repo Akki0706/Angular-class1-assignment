@@ -2,7 +2,7 @@ const appServices = require('../Services/appServices');
 
 exports.getAllApplication =async (req,res)=>{
     try{
-        const app = await appServices.getAllApplication();
+        const app = await appServices.getAllApplication(req.query);
         res.json(app);
     }catch(error){
         res.status(500).json(error.message);
@@ -43,7 +43,7 @@ exports.deleteApplication = async (req,res)=>{
 
 exports.createApplication = async (req,res)=>{
     try{
-        const app = await appServices.createApplication(req.body);
+        const app = await appServices.createApplication(req.body,req.user._id);
         if(!app){
             res.status(404).json({messsage:'Application not found'});
         }
