@@ -8,7 +8,7 @@ const {authenticateUser}=require('./Middleware/authMiddleware');
 require('dotenv').config()
 const app=express();
 app.use(bodyparser.json());
-mongoose.connect(process.env.MONGODB_URI).then(()=>{
+mongoose.connect(process.env.MONGODB_URI ).then(()=>{
     console.log("Connected to database");
 }).catch((error)=>{
     console.log("failed to connect to mongodb",error);

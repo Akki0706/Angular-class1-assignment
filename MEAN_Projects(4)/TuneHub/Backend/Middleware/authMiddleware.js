@@ -29,6 +29,12 @@ const authenticateUser = async (req, res, next) => {
     }
 };
 
+
+
+
+
+
+
 const authorizeUser = (requiredRole)=>async(req,res,next) => {
     try {
         
@@ -58,7 +64,7 @@ const authorizeCreator = async (req, res, next) => {
             return res.status(404).json({ message: 'Playlist not found' });
         }
         
-        if (Playlist.user.toString() !== userId) {
+        if (Playlist.user.toString() !== userId.toString()) {
             return res.status(403).json({ message: 'Forbidden: You are not the creator of this playlist' });
         }
         next();

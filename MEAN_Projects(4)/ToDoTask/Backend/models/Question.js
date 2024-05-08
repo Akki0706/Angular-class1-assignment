@@ -15,9 +15,13 @@ const questionSchema=new mongoose.Schema({
     },
     approved:{
         type:Boolean,
-        default:false
+        default:true
     },
-   
+    status:{
+        type:String,
+        enum:["doubtful","resolved"],
+        default:"doubtful"
+    }
    
 },{
     timestamps:true,

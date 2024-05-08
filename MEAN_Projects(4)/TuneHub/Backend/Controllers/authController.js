@@ -1,5 +1,4 @@
 const authService=require('../Services/authServices');
-require('dotenv').config()
 exports.register=async(req,res)=>{
     const {email,password,role}=req.body;
     try{

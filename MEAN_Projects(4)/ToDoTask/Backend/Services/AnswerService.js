@@ -1,6 +1,6 @@
-const Answer=require('../models/Answer');
+const Answer=require("../Models/Answer");
 const User = require('../models/User');
-const Comment=require('../models/Comment');
+const Comment=require('../Models/Comment');
 const Question=require('../models/Question')
 exports.getAllAnswers=async(id)=>{
     try{

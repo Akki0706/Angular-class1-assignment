@@ -11,7 +11,7 @@ const answerSchema=new mongoose.Schema({
     },
     approved:{
         type:Boolean,
-        default:false
+        default:true
     },
     question:{
         type:mongoose.Schema.Types.ObjectId,

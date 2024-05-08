@@ -1,12 +1,10 @@
-const express = require('express');
-const router = express.Router();
-
-const songsController = require('../Controllers/songsController');
-
-router.get('/',songsController.getAllSongs);
-router.get('/:id',songsController.getSongsById);
-router.post('/',songsController.addSongs);
-router.put('/:id',songsController.updateSongs);
-router.delete('/:id',songsController.deleteSongs);
-
+const express=require('express');
+const router=express.Router();
+const songController=require('../Controllers/songsController');
+const {authorizeUser}=require('../Middleware/authMiddleware')
+router.get('/',songController.getAllSongs)
+router.get('/:id',songController.getSongById)
+router.post('/',authorizeUser('admin'),songController.createSong)
+router.put('/:id',authorizeUser('admin'),songController.updateSong)
+router.delete('/:id',authorizeUser('admin'),songController.deleteSong)
 module.exports=router;

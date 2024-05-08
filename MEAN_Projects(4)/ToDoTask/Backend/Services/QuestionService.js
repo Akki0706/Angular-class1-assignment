@@ -2,10 +2,16 @@ const Answer = require("../Models/Answer");
 const Comment = require("../Models/Comment");
 const Question=require('../models/Question');
 const User = require('../models/User');
-exports.getAllQuestions=async()=>{
+exports.getAllQuestions=async(question)=>{
     try{
-     
-      return await Question.find().populate('answers');
+      const query={}
+      if(question){
+        query.question_statement={$regex:new RegExp(question,'i')};
+      }
+      query.status="doubtful"
+      query.isActive=true
+      query.approved=true
+      return await Question.find(query).populate('answers');
     }
     catch(error){
         throw new Error("Failed to fetch questions.")
@@ -45,25 +51,16 @@ exports.updateQuestion=async(id,updatedValue)=>{
 }
 exports.deleteQuestion=async(id)=>{
     try{
-      const ans=await Answer.find({question:id});
-      ans.forEach(val=>{
-        this.del(val._id);
-      })
-     await Answer.deleteMany({question:id});
-      
+      const answers=await Answer.find({question:id});
+      for(let ans of answers){
+        await Answer.deleteOne({_id:ans.id});
+        await Comment.deleteMany({answer:ans.id});
+      }
+     
       return await Question.findByIdAndDelete(id);
     }
     catch(error){
         throw new Error("Failed to delete question.")
     }
 }
-exports.del=async(id)=>{
-  try{
-   await Comment.deleteMany({answer:id});
-    
-    
-  }
-  catch(error){
-      throw new Error("Failed to delete question.")
-  }
-}
+

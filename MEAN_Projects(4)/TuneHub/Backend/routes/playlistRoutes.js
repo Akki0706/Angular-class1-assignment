@@ -1,11 +1,12 @@
 const express=require('express');
-const router=express.Router()
+const router=express.Router();
 const playlistController=require('../Controllers/playlistController');
-router.get('/',playlistController.getAllPlaylist)
-router.get('/:id',playlistController.getPlaylistById)
-router.post('/',playlistController.createplaylist)
-router.put('/:id',playlistController.updatePlaylist)
-router.delete('/:id',playlistController.deleteplaylist)
-router.put('/:pid/addsong/:sid',playlistController.addToPlayList)
-router.delete('/:pid/removesong/:sid',playlistController.removeFromPlaylist)
+const {authenticateUser,authorizeUser,authorizeCreator}=require('../Middleware/authMiddleware');
+router.get('/',authorizeUser('user'),playlistController.getAllPlaylist)
+router.get('/:id',authorizeUser('user'),playlistController.getPlaylistById)
+router.post('/',authorizeUser('user'),playlistController.createplaylist)
+router.put('/:id',authorizeUser('user'),authorizeCreator,playlistController.updatePlaylist)
+router.delete('/:id',authorizeUser('user'),authorizeCreator,playlistController.deleteplaylist)
+router.put('/:pid/addsong/:sid',authorizeUser('user'),playlistController.addToPlayList)
+router.delete('/:pid/removesong/:sid',authorizeUser('user'),authorizeCreator,playlistController.removeFromPlaylist)
 module.exports=router;

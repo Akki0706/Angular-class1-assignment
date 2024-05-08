@@ -1,29 +1,29 @@
-const mongoose = require('mongoose');
-const bcrypt =require('bcrypt');
-const userSchema = new mongoose.Schema({
-
+const mongoose=require('mongoose');
+const bcrypt=require('bcrypt');
+const userSchema=new mongoose.Schema({
+    
     email:{
         type:String,
         required:true
     },
     password:{
         type:String,
-        required:true
+        required:true,
     },
     role:{
         type:String,
         default:'user',
         enum:['user','admin']
     }
-},{
-    toJSON :{virtuals:true},
-    toObject :{virtuals:true}
-})
 
-userSchema.virtual('playlists',{
-    ref :'playlist',
-    localField:'_id',
-    foreignField:'user',
+},{
+    toJSON: {virtuals: true},
+    toObject:{ virtuals: true}
+})
+userSchema.virtual('playlists', {
+    'ref': 'playlist',
+    localField: '_id',
+    foreignField: 'user',
 });
 userSchema.pre('save', async function(next) {
     
@@ -55,6 +55,5 @@ userSchema.methods.checkPassword = function(password) {
         });
     });
 };
-
-const User = new mongoose.model('User',userSchema);
-module.exports = User;
+const User=new mongoose.model('User',userSchema);
+module.exports=User;

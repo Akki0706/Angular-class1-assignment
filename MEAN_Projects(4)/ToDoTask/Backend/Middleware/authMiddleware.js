@@ -64,7 +64,7 @@ const authorizeCreator = async (req, res, next) => {
             return res.status(404).json({ message: 'question  not found' });
         }
         
-        if (Question.user.toString() !== userId) {
+        if (Question.user.toString() !== userId.toString()) {
             return res.status(403).json({ message: 'Forbidden: You are not the creator of this question' });
         }
         next();

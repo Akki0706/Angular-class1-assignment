@@ -1,31 +1,48 @@
-const Song = require('../models/Song');
+const playlist = require('../models/Playlist');
+const Songs=require('../models/Song');
 exports.getAllSongs=async()=>{
     try{
-        const app = await Song.find();
-        return app;
-    }catch(error){
-        throw new Error(error.message)
+     return await Songs.find({visibility:true});
     }
-}
-exports.getSongsById = async(id)=>{
-    try{
-        const app = await Song.findById(id);
-        return app;
-    }catch(error){
-        throw new Error(error.message)
-    }  
-}
-
-exports.addSongs = async (newSongsAdded)=>{
- const newSongs = new Song(newSongsAdded);
- return await newSongs.save();
-}
-
-exports.updateSongs = async(id,updatedSongs)=>{
-    return await Song.findByIdAndUpdate(id,updatedSongs,{new:true});
-
-}
-
-exports.deleteSongs = async(id)=>{
-    return await Song.findByIdAndDelete(id);
-}
+    catch(error){
+     throw new Error(error);
+    }
+ }
+ exports.getSongById=async(id)=>{
+     try{
+      return await Songs.findById(id);
+     }
+     catch(error){
+      throw new Error(error);
+     }
+  }
+  exports.createSong=async(newFields)=>{
+     try{
+         const song=new Songs(newFields);
+      return await song.save();
+     }
+     catch(error){
+      throw new Error(error);
+     }
+  }
+  exports.updateSong=async(id,updatedFields)=>{
+     try{
+      const song=await Songs.findById(id);
+      if(song.visibility==true && updatedFields.visibility==false){
+         await playlist.updateMany({songs:id},{$pull:{songs:id}})
+      }
+      return await Songs.findByIdAndUpdate(id,updatedFields,{new:true});
+     }
+     catch(error){
+      throw new Error(error);
+     }
+  }
+  exports.deleteSong=async(id)=>{
+     try{
+      await playlist.updateMany({songs:id},{$pull:{songs:id}})
+      return await Songs.findByIdAndDelete(id);
+     }
+     catch(error){
+      throw new Error(error);
+     }
+  }

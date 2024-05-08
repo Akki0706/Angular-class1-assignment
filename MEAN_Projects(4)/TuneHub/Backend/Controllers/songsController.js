@@ -1,54 +1,66 @@
-const songsService = require('../Services/songsService');
-
-exports.getAllSongs =async (req,res)=>{
+const songService=require('../Services/songsService');
+exports.getAllSongs=async(req,res)=>{
     try{
-        const songs = await songsService.getAllSongs();
-        res.json(songs);
-    }catch(error){
-        res.status(500).json(error.message);
+        const songs=await songService.getAllSongs();
+       if(!songs){
+         res.json("song not found");
+       }
+       res.json(songs)
     }
-}
-
-exports.getSongsById = async(req,res)=>{
-    try{
-        const songs = await songsService.getSongsById(req.params.id);
-        res.json(songs);
-    }catch(error){
-        res.status(500).json({message:error.message})
-    }
-}
-
-exports.updateSongs = async(req,res)=>{
-    try{
-        const songs = await songsService.updateSongs(req.params.id,req.body);
-        if(!songs){
-            res.status(404).json({message:'Songs not found'});
-        }
-        res.json(songs);
-    }catch(error){
-        res.status(500).json({message:'Failed to update songs'});
+    catch(error){
+        res.json({message:error.message});
     }
 
 }
-
-exports.deleteSongs = async (req,res)=>{
+exports.getSongById=async(req,res)=>{
     try{
-         await songsService.deleteSongs(req.params.id);
-        
-        res.json({message:'Songs Deleted Successfully'});
-    }catch(error){
-        res.status(500).json({message:'Failed to delete applications..'});
+        const song=await songService.getSongById(req.params.id);
+       if(!song){
+         res.json("song not found");
+       }
+       res.json(song)
     }
+    catch(error){
+        res.json({message:error.message});
+    }
+
 }
-
-exports.addSongs = async (req,res)=>{
+exports.createSong=async(req,res)=>{
     try{
-        const songs = await songsService.addSongs(req.body);
-        if(!songs){
-            res.status(404).json({messsage:'Songs not found'});
-        }
-        res.json(songs);
-    }catch(error){
-        res.status(500).json(error.message);
+        const song=await songService.createSong(req.body);
+       if(!song){
+         res.json("song not created");
+       }
+       res.json(song);
     }
+    catch(error){
+        res.json({message:error.message});
+    }
+
+}
+exports.updateSong=async(req,res)=>{
+    try{
+        const song=await songService.updateSong(req.params.id,req.body);
+       if(!song){
+         res.json("failed to update");
+       }
+       res.json(song)
+    }
+    catch(error){
+        res.json({message:error.message});
+    }
+
+}
+exports.deleteSong=async(req,res)=>{
+    try{
+        const song=await songService.deleteSong(req.params.id);
+       if(!song){
+         res.json("song not found");
+       }
+       res.json("song deleted successfully")
+    }
+    catch(error){
+        res.json({message:error.message});
+    }
+
 }
