@@ -22,7 +22,7 @@ exports.createComment=async(id,newFields,userid)=>{
 
  exports.deleteComment=async(id)=>{
     try{
-      return await Comment.delete({_id:id});
+      return await Comment.deleteOne({_id:id});
     }
     catch(error){
      throw new Error(error);

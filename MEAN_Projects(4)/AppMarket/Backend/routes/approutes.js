@@ -6,7 +6,7 @@ const commentController = require('../Controllers/commentController');
 router.get('/',appController.getAllApplication);
 router.get('/:id',appController.getApplicationById);
 router.post('/', authorizeUser('admin'),  appController.createApplication);
-router.delete('/;id', authorizeUser('admin'),authorizeCreator,appController.deleteApplication);
+router.delete('/:id', authorizeUser('admin'),authorizeCreator,appController.deleteApplication);
 router.put('/:id', authorizeUser('admin'),authorizeCreator, appController.updateApplication);
 router.post('/comment/:id',commentController.createComment);
 router.delete('/comment/delete/:id',commentController.deleteComment);
