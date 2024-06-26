@@ -1,19 +1,18 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express=require('express');
+const mongoose=require('mongoose');
+const bodyparser=require('body-parser');
 
-
-const Hikeroutes = require('./routes/approutes')
 require('dotenv').config()
-const bodyParser = require('body-parser');
 const app=express();
-app.use(bodyParser.json());
+app.use(bodyparser.json());
 mongoose.connect(process.env.MONGODB_URI).then(()=>{
-    console.log('Connected to Mongodb')
+    console.log("Connected to database");
 }).catch((error)=>{
-        console.log('Failed to connect to mongodb',error)
+    console.log("Failed to connect to mongodb",error);
 })
-app.use('/Hiking',Hikeroutes);
-const port = process.env.PORT;
+const trailRoutes=require('./Routes/trialRoutes');
+app.use('/trails',trailRoutes);
+const port=process.env.PORT
 app.listen(port,()=>{
-    console.log(`Server is running on port ${port}...`)
+    console.log(`Server is running at port ${port}`);
 })

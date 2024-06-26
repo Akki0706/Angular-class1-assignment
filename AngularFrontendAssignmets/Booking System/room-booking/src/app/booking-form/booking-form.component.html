@@ -1,0 +1,41 @@
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh; background-color: #f5f5f5;">
+    <div style="width: 100%; max-width: 600px; background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 0px 4px 8px rgba(0,0,0,0.1);">
+      <h2 style="margin-bottom: 20px; font-size: 24px; text-align: center; color: #007bff;">Book a Room</h2>
+      <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="roomNumber" style="font-weight: bold; display: block; margin-bottom: 5px;">Room Number</label>
+          <input id="roomNumber" formControlName="roomNumber" type="number" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px;"  #rooms>
+          <div *ngIf="bookingForm.get('roomNumber')?.invalid && bookingForm.get('roomNumber')?.touched">
+            <small class="text-danger" *ngIf="bookingForm.get('roomNumber')?.errors?.['required']" style="color: red;">Room Number is required.</small>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="StartTime" style="font-weight: bold; display: block; margin-bottom: 5px;">Start Time</label>
+          <input id="StartTime" formControlName="StartTime" type="datetime-local" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px;" #StartingTime>
+          <div *ngIf="bookingForm.get('StartTime')?.invalid && bookingForm.get('StartTime')?.touched" >
+            <small class="text-danger" *ngIf="bookingForm.get('StartTime')?.errors?.['required']" style="color: red;">Start Time is required.</small>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="EndTime" style="font-weight: bold; display: block; margin-bottom: 5px;">End Time</label>
+          <input id="EndTime" formControlName="EndTime" type="datetime-local" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px;" #EndingTime>
+          <div *ngIf="bookingForm.get('EndTime')?.invalid && bookingForm.get('EndTime')?.touched" >
+            <small class="text-danger" *ngIf="bookingForm.get('EndTime')?.errors?.['required']" style="color: red;">End Time is required.</small>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="Date" style="font-weight: bold; display: block; margin-bottom: 5px;">Date</label>
+          <input id="Date" formControlName="Date" type="date" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px;" #BookingDate>
+          <div *ngIf="bookingForm.get('Date')?.invalid && bookingForm.get('Date')?.touched" >
+            <small class="text-danger" *ngIf="bookingForm.get('Date')?.errors?.['required']" style="color: red;">Date is required.</small>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="bookingForm.invalid" (click)="add(rooms.value,StartingTime.value,EndingTime.value,BookingDate.value)" style="width: 100%; padding: 10px; background-color: #007bff; border: none; border-radius: 5px; font-size: 16px;">Book Room</button>
+        <button type="button" class="btn btn-primary" style="margin-left:10px" (click)="goback()">Back</button>
+    </form>
+    
+      <div *ngIf="show" style="margin-top: 20px; padding: 15px; background-color: #28a745; color: white; border-radius: 5px; text-align: center;">
+    Room Booked Successfully
+      </div>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
-const Answer = require("../Models/Answer");
-const Comment = require("../Models/Comment");
-const Question=require('../models/Question');
+const Answer = require("../models/AnswerModel");
+const Comment = require("../models/CommentModel");
+const Question=require('../models/QuestionModel');
 const User = require('../models/User');
 exports.getAllQuestions=async(question)=>{
     try{

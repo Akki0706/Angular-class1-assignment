@@ -33,9 +33,11 @@ exports.updateApplication = async(req,res)=>{
 
 exports.deleteApplication = async (req,res)=>{
     try{
-         await appServices.deleteApplication(req.params.id);
-        
-        res.json({message:'Application  Deleted Successfully'});
+     const deleteApp =    await appServices.deleteApplication(req.params.id);
+        if(!deleteApp){
+        res.json({message:'Application not deleted Successfully'});
+        }
+        res.json("application deleted successfully");
     }catch(error){
         res.status(500).json({message:'Failed to delete applications..'});
     }

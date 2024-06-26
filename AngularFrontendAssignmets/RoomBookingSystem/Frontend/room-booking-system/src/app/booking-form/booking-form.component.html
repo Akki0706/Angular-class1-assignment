@@ -1,0 +1,25 @@
+<h2>Form </h2>
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div style="margin-bottom: 15px;">
+      <label for="roomId" style="display: block; margin-bottom: 5px; font-weight: bold;">Room ID:</label>
+      <input id="roomId" formControlName="roomId" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+  
+    <div style="margin-bottom: 15px;">
+      <label for="startTime" style="display: block; margin-bottom: 5px; font-weight: bold;">Start Time:</label>
+      <input id="startTime" type="datetime-local" formControlName="startTime" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+  
+    <div style="margin-bottom: 15px;">
+      <label for="endTime" style="display: block; margin-bottom: 5px; font-weight: bold;">End Time:</label>
+      <input id="endTime" type="datetime-local" formControlName="endTime" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+  
+    <div style="margin-bottom: 15px;">
+      <label for="bookedBy" style="display: block; margin-bottom: 5px; font-weight: bold;">Booked By:</label>
+      <input id="bookedBy" formControlName="bookedBy" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+  
+    <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Book Room</button>
+  </form>
+  

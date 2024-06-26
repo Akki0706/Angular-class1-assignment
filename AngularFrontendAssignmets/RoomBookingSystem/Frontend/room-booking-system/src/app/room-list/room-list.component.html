@@ -1,0 +1,9 @@
+<h2 style="font-size: 24px; margin-bottom: 20px;">Room List Displays</h2>
+
+<div *ngFor="let room of rooms" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+  <h3 style="margin-bottom: 5px;">{{ room.name }} (Capacity: {{ room.capacity }})</h3>
+  <button (click)="selectRoom(room.id)" style="padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">View Bookings</button>
+</div>
+
+ <app-booking-list *ngIf="selectedRoomId" [roomId]="selectedRoomId" style="margin-top: 20px;"></app-booking-list>
+<app-booking-form style="margin-top: 20px;"></app-booking-form>

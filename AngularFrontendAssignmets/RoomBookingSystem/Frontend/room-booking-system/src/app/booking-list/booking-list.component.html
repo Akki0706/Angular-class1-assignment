@@ -1,0 +1,8 @@
+<h2 style="font-size: 24px; margin-bottom: 20px;">Booking List</h2>
+
+<div *ngFor="let booking of bookings" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+    <p>{{booking.roomId}}</p>
+  <p style="font-weight: bold; margin-bottom: 5px;">{{ booking.startTime | date:'short' }} - {{ booking.endTime | date:'short' }}</p>
+  
+  <button (click)="cancelBooking(booking.id)" style="padding: 8px 12px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
+</div>

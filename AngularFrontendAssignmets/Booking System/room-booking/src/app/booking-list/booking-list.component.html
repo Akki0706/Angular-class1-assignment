@@ -1,0 +1,20 @@
+<div *ngIf="BookingList" style="margin: 20px; display: flex; flex-wrap: wrap; gap: 20px;">
+    <div *ngFor="let l of BookingList" style="flex: 1 1 calc(33.333% - 20px); max-width: calc(33.333% - 20px);">
+      <div class="card border-success mb-3" style="max-width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div class="card-header bg-transparent border-success" style="background-color: #e9f5e9; font-weight: bold; text-align: center;">
+          Item No {{l.id}}
+        </div>
+        <div class="card-body" style="padding: 20px; text-align: center;">
+          <h5 class="card-title" style="font-size: 1.25rem; color: #28a745; margin-bottom: 10px;">Room Number: {{l.roomNumber}}</h5>
+          <p class="card-text" style="font-size: 1rem; color: #6c757d; margin-bottom: 5px;">Start Time: {{l.StartTime}}</p>
+          <p class="card-text" style="font-size: 1rem; color: #6c757d; margin-bottom: 5px;">End Time: {{l.EndTime}}</p>
+          <p class="card-text" style="font-size: 1rem; color: #6c757d;">Date: {{l.Date}}</p>
+        </div>
+        <div class="card-footer bg-transparent border-success" style="background-color: #e9f5e9; text-align: center;">
+          <button class="btn btn-danger rounded-pill px-3" type="button" style="margin-right: 10px;" (click)="delete(l.id)">Delete</button>
+          <button class="btn btn-info rounded-pill px-3" type="button" routerLink="/update/{{l.id}}">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

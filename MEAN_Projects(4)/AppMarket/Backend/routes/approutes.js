@@ -1,10 +1,10 @@
 const express = require('express');
-const router = express.Router();
 const {authenticateUser, authorizeUser, authorizeCreator}=require('../Middleware/authMiddleware');
 const appController = require('../Controllers/applicationController');
 const commentController = require('../Controllers/commentController');
+const router = express.Router();
 router.get('/',appController.getAllApplication);
-router.get('/:id',appController.getApplicationById);
+router.get('/:id', authorizeUser('admin'),authorizeCreator,appController.getApplicationById);
 router.post('/', authorizeUser('admin'),  appController.createApplication);
 router.delete('/:id', authorizeUser('admin'),authorizeCreator,appController.deleteApplication);
 router.put('/:id', authorizeUser('admin'),authorizeCreator, appController.updateApplication);

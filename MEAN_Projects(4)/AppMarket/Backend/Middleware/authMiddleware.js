@@ -44,8 +44,8 @@ const authorizeCreator = async (req, res, next) => {
         if (!application) {
             return res.status(404).json({ message: 'Application not found' });
         }
-        if (application.user.toString() !== userId) {
-            return res.status(403).json({ message: 'Forbidden' });
+        if (application.user.toString() !== userId.toString()) {
+            return res.status(403).json({ message: 'Forbidden Ankit' });
         }
         next();
     } catch (error) {

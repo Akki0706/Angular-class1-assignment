@@ -1,4 +1,4 @@
-const Comment=require("../Models/Comment");
+const Comment=require("../models/CommentModel");
 const User = require('../models/User');
 exports.getAllComments=async(id)=>{
     try{

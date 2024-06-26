@@ -1,0 +1,45 @@
+<div class="card text-center" style="margin: 100px;">
+    <div class="card-header card-title" style="font-size: 30px;">
+      Update {{ room?.value }} Details
+    </div>
+    <div class="card-body">
+      <form [formGroup]="updateForm">
+        <div class="row mb-3 form-group">
+          <label for="roomNumber" class="col-sm-2 col-form-label">Room Number:</label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="roomNumber" [value]="room?.value" #room>
+          </div>
+        </div>
+        <div class="row mb-3 form-group">
+          <label for="StartTime" class="col-sm-2 col-form-label">Start Time:</label>
+          <div class="col-sm-10">
+            <input type="time" class="form-control" id="StartTime" formControlName="StartTime" [class.is-invalid]="updateForm.get('StartTime')?.touched && updateForm.get('StartTime')?.invalid" #StartingTime>
+            <div *ngIf="updateForm.get('StartTime')?.touched && updateForm.get('StartTime')?.invalid">
+              <span class="text-danger">Start Time is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 form-group">
+          <label for="EndTime" class="col-sm-2 col-form-label">End Time:</label>
+          <div class="col-sm-10">
+            <input type="time" class="form-control" id="EndTime" formControlName="EndTime" [class.is-invalid]="updateForm.get('EndTime')?.touched && updateForm.get('EndTime')?.invalid" #EndingTime>
+            <div *ngIf="updateForm.get('EndTime')?.touched && updateForm.get('EndTime')?.invalid">
+              <span class="text-danger">End Time is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 form-group">
+          <label for="Date" class="col-sm-2 col-form-label">Date:</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="Date" formControlName="Date" [class.is-invalid]="updateForm.get('Date')?.touched && updateForm.get('Date')?.invalid" #bookingDate>
+            <div *ngIf="updateForm.get('Date')?.touched && updateForm.get('Date')?.invalid">
+              <span class="text-danger">Date is required</span>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid" (click)="update(room.value, StartingTime.value, EndingTime.value, bookingDate.value)">Update</button>
+        <button type="button" class="btn btn-primary" style="margin-left:10px" (click)="goback()">Back</button>
+      </form>
+    </div>
+  </div>
+  

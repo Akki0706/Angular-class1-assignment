@@ -33,9 +33,9 @@ export class MainServicesService {
       return this.http.get(`${newurl}/?name=${term}`)
     
   }
-  addchar(character:character):Observable<character[]>{
+  addchar(character:character):Observable<character>{
   
-      return this.http.post<character[]>(this.url1,character,this.httpOptions);
+      return this.http.post<character>(this.url1,character,this.httpOptions);
     
   }
   addgad(gadget:gadget):Observable<gadget[]>{

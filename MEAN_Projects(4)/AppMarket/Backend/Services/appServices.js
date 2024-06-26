@@ -1,5 +1,6 @@
 const application = require('../models/application');
-
+const Comment=require('../models/comment');
+const User=require('../models/user');
 exports.getAllApplication = async(filters)=> {
 try{
 const {appName,category}=filters;
@@ -34,17 +35,17 @@ exports.createApplication = async(newFields,id) => {
 
 exports.deleteApplication = async(id)=> {
     try{
-   await Comment.deleteMany({application:id});
+   await Comment.deleteMany({Application:id});
    await User.updateMany({downloadedApplications:id},{$pull:{downloadedApplications:id}});
-    return await deletedApp.findByIdAndDelete(id);
+    return await application.findByIdAndDelete(id);
     }catch(error){
         throw new Error(error);
     }
 }
 
 exports.updateApplication = async(id,updatedFields)=> {
-    const application = Application.findById(id);
-    if(application.visibility==true && updatedFields.visibility==false){
+    const Application = application.findById(id);
+    if(Application.visibility==true && updatedFields.visibility==false){
         await User.updateMany({downloadedApplications:id},{$pull:{downloadedApplications:id}});
     }
     return await application.findByIdAndUpdate(id,updatedFields,{new:true});

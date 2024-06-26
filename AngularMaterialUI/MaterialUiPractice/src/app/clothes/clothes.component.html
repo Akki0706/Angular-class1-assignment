@@ -1,0 +1,16 @@
+<div *ngFor="let item of clothingItems">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ item.name }}</mat-card-title>
+      <mat-card-subtitle>Size: {{ item.size }} | Color: {{ item.color }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="item.img" alt="Photo of {{ item.name }}">
+    <mat-card-content>
+      <p>Price: ${{ item.price }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>BUY</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

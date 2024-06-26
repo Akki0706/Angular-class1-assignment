@@ -13,7 +13,7 @@ import { character } from '../InterfaceInfo';
 })
 export class CharacterComponent {
   constructor(private mainservice:MainServicesService){}
-  list?:character[];
+  list:character[]=[];
   getCharacter(){
     return this.mainservice.getcharacter().subscribe(l=>this.list=l);
   }
@@ -24,13 +24,19 @@ export class CharacterComponent {
     this.list=this.list?.filter(character=>character!=l);
     this.mainservice.deletecharacter(l.id).subscribe();
   }
-  // addMember(name:string):void{
-  //   name=name.trim();
-  //   if(!name){
-  //     return
-  //   }
-  //   this.mainservice.addMember({name} as character).subscribe(character => this.list.push(character));
+   addchar(name:string):void{
+    name=name.trim();
+    if(!name){
+     return
+   }
+   this.mainservice.addchar({ name } as character).subscribe(newCharacter => {
+    if (newCharacter) {
+      this.list.push(newCharacter);
+    }
+  });
+
+  
   }
 
 
-
+}

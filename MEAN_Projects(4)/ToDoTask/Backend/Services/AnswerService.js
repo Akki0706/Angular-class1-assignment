@@ -1,7 +1,7 @@
-const Answer=require("../Models/Answer");
+const Answer=require('../models/AnswerModel');
 const User = require('../models/User');
-const Comment=require('../Models/Comment');
-const Question=require('../models/Question')
+const Comment=require('../models/CommentModel');
+const Question=require('../models/QuestionModel')
 exports.getAllAnswers=async(id)=>{
     try{
        return await Answer.find({question:id}).populate('comments');

@@ -1,0 +1,85 @@
+<div class="container-fluid">
+  <div class="card mx-auto mt-5" style="max-width: 900px; border-radius: 10px; box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);">
+    <h2 class="card-title text-center py-3" style="background-color: #343a40; color: white; border-radius: 10px 10px 0 0;">Update Application</h2>
+    <form [formGroup]="updateForm" (ngSubmit)="save()">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="appname" style="color: #343a40;">App Name: </label>
+          <input formControlName="AppName" type="text" class="form-control" readonly id="appname">
+          <div *ngIf="AppName?.invalid && AppName?.touched">
+            <small class="text-danger" *ngIf="AppName?.errors?.['required']">Enter App Name</small>
+            <small class="text-danger" *ngIf="AppName?.errors?.['minlength']">Type at least four characters to complete the name.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="floatingTextarea" style="color: #343a40;">Description</label>
+          <textarea class="form-control" placeholder="Write description here..." id="floatingTextarea" formControlName="description"></textarea>
+          <div *ngIf="description?.invalid && description?.touched">
+            <small class="text-danger" *ngIf="description?.errors?.['required']">Enter Description</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="releasedate" style="color: #343a40;">Release Date: </label>
+          <input formControlName="releasedate" class="form-control" readonly id="releasedate">
+          <div *ngIf="releasedate?.invalid && releasedate?.touched">
+            <small class="text-danger" *ngIf="releasedate?.errors?.['required']">Release Date is required</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="color: #343a40;">Version: </label>
+          <input formControlName="version" type="number" class="form-control">
+          <div *ngIf="version?.invalid && version?.touched">
+            <small class="text-danger" *ngIf="version?.errors?.['required']">Version is required</small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="rating" style="color: #343a40;">Rating: </label>
+            <input formControlName="avgrating" type="text" class="form-control" readonly id="rating">
+          </div>
+          <div class="col">
+            <label for="downloads" style="color: #343a40;">Downloads: </label>
+            <input formControlName="downloadCount" type="text" class="form-control" readonly id="downloads">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label style="color: #343a40;">Visibility</label>
+          <select class="form-select" formControlName="visibility" style="border-color: #343a40;">
+            <option value="" disabled selected>Visibility</option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label style="color: #343a40;">Genre:</label>
+          <select class="form-select" formControlName="genre" style="border-color: #343a40;">
+            <option value="" disabled selected>Genre</option>
+            <option value="Games">Games</option>
+            <option value="Health">Health</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Women Interest">Women Interest</option>
+          </select>
+          <div *ngIf="genre?.invalid && genre?.touched">
+            <small class="text-danger" *ngIf="genre?.errors?.['required']">Genre is required</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid" style="background-color: #343a40;">Update</button>
+        <button type="button" class="btn btn-primary" (click)="goBack()" style="background-color: #343a40;">Back</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Toast messages section -->
+  <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999;" *ngIf="show">
+    <ngb-toast header="" [autohide]="false" (hidden)="show = false" style="background-color: #343a40; color: #f8f9fa; border-radius: 10px;">
+      Application Updated
+    </ngb-toast>
+  </div>
+</div>

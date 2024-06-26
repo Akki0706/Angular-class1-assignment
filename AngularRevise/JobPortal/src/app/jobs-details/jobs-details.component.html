@@ -1,0 +1,14 @@
+<div class="container mt-5">
+    <h2>Job Details</h2>
+  
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text"><strong>Company Name:</strong> {{ jobdetails?.CompanyName}}</p>
+        <p class="card-text"><strong>Position:</strong> {{ jobdetails?.position }}</p>
+        <p class="card-text"><strong>Stipend:</strong> {{ jobdetails?.Stipend}}</p>
+        <p class="card-text"><strong>Location:</strong> {{ jobdetails?.location }}</p>
+        <p class="card-text"><strong>Lastdate:</strong> {{jobdetails?.LastDate}}</p>
+       
+        <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+      </div>
+  

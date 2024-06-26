@@ -1,0 +1,67 @@
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card" style="max-width: 800px; width: 90%; background-color: #f8f9fa; border-radius: 15px; box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);">
+      <div class="card-header" style="background-color: #343a40; color: white; border-radius: 15px 15px 0 0; padding: 15px;">
+        <h2 style="margin-bottom: 0;">Create Application</h2>
+      </div>
+      <div class="card-body" style="padding: 20px;">
+        <form [formGroup]="appform" (ngSubmit)="onsubmit()">
+  
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">App Name</label>
+            <input formControlName="AppName" type="text" class="form-control" style="border-color: #343a40;">
+            <div *ngIf="AppName?.invalid && AppName?.touched">
+              <small class="text-danger" *ngIf="AppName?.errors?.['required']" style="color: red;">Enter Appname</small>
+              <small class="text-danger" *ngIf="AppName?.errors?.['minlength']" style="color: red;">Type at least four characters to complete the name.</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">Description</label>
+            <textarea class="form-control" placeholder="Write description here........." id="floatingTextarea" formControlName="Description" style="border-color: #343a40;"></textarea>
+            <div *ngIf="Description?.invalid && Description?.touched" >
+              <small class="text-danger" *ngIf="Description?.errors?.['required']" style="color: red;">Enter Description......</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">Release Date</label>
+            <input formControlName="ReleaseDate" type="date" class="form-control" style="border-color: #343a40;">
+            <div *ngIf="ReleaseDate?.invalid && ReleaseDate?.touched">
+              <small class="text-danger" *ngIf="ReleaseDate?.errors?.['required']" style="color: red;">ReleaseDate is required....</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">Version</label>
+            <input formControlName="Version" type="number" class="form-control" style="border-color: #343a40;">
+            <div *ngIf="Version?.invalid && Version?.touched">
+              <small class="text-danger" *ngIf="Version?.errors?.['required']" style="color: red;">Version is required....</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">Genre</label>
+            <select class="form-select" aria-label="Disabled select example" formControlName="Genre" style="border-color: #343a40;">
+              <option selected disabled>Genre</option>
+              <option value="1">Games</option>
+              <option value="2">Health</option>
+              <option value="3">Beauty</option>
+              <option value="3">XYZ</option>
+            </select>
+            <div *ngIf="Genre?.invalid && Genre?.touched">
+              <small class="text-danger" *ngIf="Genre?.errors?.['required']" style="color: red;">Genre is required....</small>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary" [disabled]="appform.invalid" style="background-color: #343a40;">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999;" *ngIf="show">
+      <ngb-toast header="" [autohide]="false" (hidden)="show = false" style="background-color: #343a40; color: #f8f9fa; border-radius: 10px;">
+        Application created successfully
+      </ngb-toast>
+    </div>
+  </div>
+  

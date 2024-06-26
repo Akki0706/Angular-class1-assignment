@@ -1,0 +1,150 @@
+<!---
+
+<div class="container-fluid">
+  <div class="row">
+   
+    <div class="col-md-3" style="background-color: #000; padding: 20px; position: fixed; left: 0; top: 0; display: flex; flex-direction: column; height: 100vh; z-index: 1;">
+      <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+        </svg>
+        <h3 style="color: #fff; margin: 0;">Admin Dashboard</h3>
+      </div>
+      
+      <div ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills flex-column" orientation="vertical">
+
+        <ng-container ngbNavItem="dashboard">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+            </svg>
+            <button ngbNavLink routerLink="/dashboard" style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+                [ngStyle]="{'background-color': active === 'dashboard' ? '#007bff' : 'transparent'}">Dashboard</button>
+          </div>
+        </ng-container>
+
+        <ng-container ngbNavItem="myProfile">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+            <button ngbNavLink routerLink="/myProfile" style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+                [ngStyle]="{'background-color': active === 'myProfile' ? '#007bff' : 'transparent'}">My Profile</button>
+          </div>
+        </ng-container>
+
+        <ng-container ngbNavItem="home">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-add" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h4a.5.5 0 1 0 0-1h-4a.5.5 0 0 1-.5-.5V7.207l5-5 6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+              <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 1 0 1 0v-1h1a.5.5 0 1 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
+            </svg>
+            <button ngbNavLink routerLink="/home" style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+                [ngStyle]="{'background-color': active === 'home' ? '#007bff' : 'transparent'}">HomePage</button>
+          </div>
+   </ng-container>
+        <ng-container ngbNavItem="top">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3q0-.405-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708M3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
+            </svg>
+            <button ngbNavLink routerLink="/create" style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+                [ngStyle]="{'background-color': active === 'top' ? '#007bff' : 'transparent'}">Create Application</button>
+          </div>
+   </ng-container>
+       
+        <ng-container ngbNavItem="logout">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+            </svg>
+            <button ngbNavLink routerLink="/logout" style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+                [ngStyle]="{'background-color': active === 'logout' ? '#007bff' : 'transparent'}">Logout</button>
+          </div>
+        </ng-container> 
+     
+      </div>  
+    </div>
+
+    <div class="col-md-9" style="padding: 20px; margin-left: 25%; margin-top: 40px;">
+      <div [ngbNavOutlet]="nav"></div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+---->
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-3"
+      style="background-color: #000; padding: 20px; position: fixed; left: 0; top: 0; display: flex; flex-direction: column; height: 100vh; z-index: 1;">
+      <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle"
+          viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+          <path fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+        </svg>
+        <h3 style="color: #fff; margin: 0;">User Dashboard</h3>
+      </div>
+
+      <div ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills flex-column" orientation="vertical">
+
+        <ng-container ngbNavItem="homeUser">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+              class="bi bi-pencil-square" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+              <path fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+            </svg>
+            <button ngbNavLink routerLink="/homeUser"
+              style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+              [ngStyle]="{'background-color': active === 'homeUser' ? '#007bff' : 'transparent'}">Home</button>
+          </div>
+        </ng-container>
+
+        <ng-container ngbNavItem="myProfile">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+              class="bi bi-person-circle" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            </svg>
+            <button ngbNavLink routerLink="/myProfileUser"
+              style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+              [ngStyle]="{'background-color': active === 'myProfile' ? '#007bff' : 'transparent'}">My Profile</button>
+          </div>
+        </ng-container>
+
+
+        <ng-container ngbNavItem="installedApps">
+          <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+              class="bi bi-person-circle" viewBox="0 0 16 16" style="color: #fff; margin-right: 10px;">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            </svg>
+            <button ngbNavLink routerLink="/installedApps"
+              style="color: #fff; border: none; background-color: transparent; padding: 10px; margin-bottom: 10px;"
+              [ngStyle]="{'background-color': active === 'installedApps' ? '#007bff' : 'transparent'}">Installed
+              Apps</button>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+    <div class="col-md-9" style="padding: 20px; margin-left: 25%; margin-top: 40px;">
+      <div [ngbNavOutlet]="nav"></div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
