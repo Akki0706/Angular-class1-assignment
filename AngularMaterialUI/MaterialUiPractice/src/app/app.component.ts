@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { numericpipes } from './demo.pipe';
-import { CommonModule } from '@angular/common';
-
+import { RouterLink } from '@angular/router';
+import { ThousandPipe } from './thousand.pipe'; // Ensure the path is correct
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSlideToggleModule,RouterModule,numericpipes,CommonModule],
+  imports: [RouterLink, ThousandPipe, NgFor, NgIf],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MaterialUiPractice';
+  title = 'app';
 }

@@ -1,0 +1,49 @@
+/* styles.css */
+
+/* Additional top margin for the container */
+.container {
+    margin-top: 3rem;
+  }
+  
+  /* Card styles */
+  .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  /* Shadow effect for cards */
+  .card.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  
+  /* Card hover effect */
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Primary color for card titles */
+  .card-title.text-primary {
+    color: #007bff; /* Primary Bootstrap color */
+  }
+  
+  /* Secondary color for card text */
+  .card-text.text-secondary {
+    color: #6c757d; /* Secondary Bootstrap color */
+  }
+  
+  /* Custom button styles */
+  .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  }
+  
+  /* Button hover effect */
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+  }
+  
