@@ -1,15 +1,35 @@
 <div class="container mt-5">
-    <!-- Container for the cart -->
-    <h2 class="text-center mb-4 text-primary">Your Cart</h2>
-    <ul class="list-group shadow-sm">
-      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" *ngFor="let book of cart" appHighlight>
+  <!-- Container for the cart -->
+  <h2 class="text-center mb-4 text-primary">Your Cart</h2>
+  <ul class="list-group shadow-sm">
+    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" *ngFor="let book of cart" appHighlight>
+      <div class="d-flex align-items-center">
+        <img src="{{ book.img }}" class="img-thumbnail mr-3" alt="{{ book.title }}" style="width: 80px; height: auto;">
         <div>
           <h5 class="mb-1">{{ book.title }}</h5>
           <p class="mb-0 text-muted">by {{ book.author }}</p>
         </div>
-        <button (click)="delete(book)" class="btn btn-danger btn-sm">Remove</button>
+      </div>
+      <button (click)="delete(book)" class="btn btn-danger btn-sm">Remove</button>
+    </li>
+  </ul>
+</div>
 
-      </li>
-    </ul>
-  </div>
-  
+<!-- Add this custom style in your styles.css or directly in the component's CSS file -->
+<style>
+  .img-thumbnail {
+    max-width: 100px;
+    height: auto;
+    object-fit: cover;
+  }
+  .list-group-item {
+    transition: background-color 0.3s ease;
+  }
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  .text-primary {
+    color: #007bff !important;
+  }
+</style>
+

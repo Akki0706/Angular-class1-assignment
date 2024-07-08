@@ -1,37 +1,38 @@
 <div class="container mt-5" *ngIf="book">
-    <!-- Container for displaying the details of a single book -->
-    <div class="row">
-      <!-- Center the content by using column offsets -->
-      <div class="col-md-8 offset-md-2">
-        <!-- Bootstrap Card component for a cleaner layout -->
-        <div class="card border-dark shadow-sm mb-4">
-          <div class="card-body bg-light">
-            <!-- Book title -->
-            <h2 class="card-title text-dark">{{ book.title }}</h2>
-            <!-- Book author -->
-            <h4 class="card-subtitle mb-2 text-muted">by {{ book.author }}</h4>
-            <!-- Book description -->
-            <p class="card-text">{{ book.description }}</p>
-            <!-- Button to add the book to the cart -->
-            <button (click)="addToCart(book)" class="btn btn-purple text-white">Add to Cart</button>
-          </div>
+  <!-- Container for displaying the details of a single book -->
+  <div class="row">
+    <!-- Center the content by using column offsets -->
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <!-- Bootstrap Card component for a cleaner layout -->
+      <div class="card border-dark shadow-sm mb-4">
+        <div class="card-body bg-light">
+          <!-- Book title -->
+          <h2 class="card-title text-dark">{{ book.title }}</h2>
+          <!-- Book author -->
+          <h4 class="card-subtitle mb-3 text-muted">by {{ book.author }}</h4>
+          <!-- Book description -->
+          <p class="card-text">{{ book.description }}</p>
+          <!-- Book image -->
+          <img src="{{book.img}}" class="img-fluid mb-3" alt="{{ book.title }}">
+          <!-- Button to add the book to the cart -->
+          <button (click)="addToCart(book)" class="btn btn-purple text-white btn-block">Add to Cart</button>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Add this custom style in your styles.css or directly in the component's CSS file -->
-  <style>
-    .btn-purple {
-      background-color: #6f42c1; /* Purple color */
-      border-color: #6f42c1;
-    }
-    .btn-purple:hover {
-      background-color: #5a32a3;
-      border-color: #5a32a3;
-    }
-    .bg-light {
-      background-color: #f8f9fa !important; /* Light background */
-    }
-  </style>
-  
+</div>
+
+<!-- Add this custom style in your styles.css or directly in the component's CSS file -->
+<style>
+  .btn-purple {
+    background-color: #6f42c1; /* Purple color */
+    border-color: #6f42c1;
+  }
+  .btn-purple:hover {
+    background-color: #5a32a3;
+    border-color: #5a32a3;
+  }
+  .bg-light {
+    background-color: #f8f9fa !important; /* Light background */
+  }
+</style>

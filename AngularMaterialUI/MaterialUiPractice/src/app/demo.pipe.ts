@@ -2,15 +2,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'thousand',
+
   standalone: true,
 })
-export class ThousandPipe implements PipeTransform {
-  transform(value: any, ...args: any[]): string {
-    if (typeof value !== 'string') {
-      return value;
+export class numericpipes implements PipeTransform {
+  transform(value: any, ...args: any[]) {
+    args.forEach((val, indx, arr) => {
+      console.log(val);
+    });
+
+    if (!value) return value;
+
+    if (value == 'k') {
+      return '10k';
+    } else {
+      return 'Ten Thousand';
     }
-    // Your transformation logic here. 
-    // This example just returns the value and arguments joined for demonstration.
-    return `${value} ${args.join(' ')}`;
   }
 }
