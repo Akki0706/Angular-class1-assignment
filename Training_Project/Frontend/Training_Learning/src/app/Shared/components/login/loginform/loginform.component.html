@@ -1,0 +1,41 @@
+<div *ngIf="showLoader" class="loader-container">
+  <app-loader></app-loader>
+</div>
+
+<div class="card" *ngIf="!showLoader">
+  <div class="card-header">
+    <h3>Login</h3>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" class="form-control" [ngClass]="{'is-invalid': submitted && username?.errors}">
+        <div *ngIf="submitted && username?.errors" class="invalid-feedback">
+          <div *ngIf="username?.errors?.['required']">Username is required</div>
+          <div *ngIf="username?.errors?.['pattern']">Only alphabets allowed..</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': submitted && password?.errors}">
+        <div *ngIf="submitted && password?.errors" class="invalid-feedback">
+          <div *ngIf="password?.errors?.['required']">Password is required</div>
+          <div *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select id="role" formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && role?.errors }">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <div *ngIf="submitted && role?.errors" class="invalid-feedback">
+            <div *ngIf="role?.errors?.['required']">Role is required</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Login</button>
+      <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+    </form>
+  </div>
+</div>

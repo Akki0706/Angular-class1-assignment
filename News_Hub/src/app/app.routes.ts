@@ -8,4 +8,5 @@ export const routes: Routes = [
     {path:'categories',component:CategoriesComponent},
     {path:'detail/:id',component:NewsdetailComponent},
     {path:'',redirectTo:'news',pathMatch:'full'},
+    
 ];

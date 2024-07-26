@@ -1,0 +1,11 @@
+<h2>Application</h2>
+<div *ngIf="apps" class="app-container">
+  <div class="app-details">
+    <span class="app-id">ID: {{ apps.id }}</span><br />
+    <span class="app-name">App Name: {{ apps.app_name }}</span><br />
+    <span class="app-description">Description: {{ apps.description }}</span>
+  </div>
+</div>
+
+<button type="button" (click)="goBack()" class="back-button">Back</button>
+

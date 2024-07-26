@@ -1,0 +1,11 @@
+.load-container{
+
+ 
+    display: flex;
+    justify-content: center;
+    align-items: centre;
+}
+.spinner{
+background-color: aqua;
+    color: black;
+}

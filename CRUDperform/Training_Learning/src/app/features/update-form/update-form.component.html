@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 600px; border-radius: 10px; box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);">
+      <div class="card-header text-center" style="background-color: #343a40; color: white; border-radius: 10px 10px 0 0;">
+        <h2>{{ title }}</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="appform" (ngSubmit)="onsubmit()">
+          <div class="mb-3">
+            <label for="appname" style="color: #343a40;">App Name</label>
+            <input formControlName="app_name" type="text" class="form-control" id="appname" style="border-color: #343a40;">
+            <div *ngIf="app_name?.invalid && app_name?.touched">
+              <small class="text-danger" *ngIf="app_name?.errors?.['required']">Enter App Name</small>
+              <small class="text-danger" *ngIf="app_name?.errors?.['minlength']">Type at least four characters</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="description" style="color: #343a40;">Description</label>
+            <textarea class="form-control" id="description" formControlName="description" placeholder="Write description here..." style="border-color: #343a40;"></textarea>
+            <div *ngIf="description?.invalid && description?.touched">
+              <small class="text-danger" *ngIf="description?.errors?.['required']">Enter Description</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="image" style="color: #343a40;">Image</label>
+            <input formControlName="img" type="text" id="image" class="form-control" style="border-color: #343a40;">
+            <div *ngIf="img?.invalid && img?.touched">
+              <small class="text-danger" *ngIf="img?.errors?.['required']">Image is required</small>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary"  style="background-color: #343a40;">Update</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Toast messages section -->
+    <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999;" *ngIf="show">
+      <!-- <ngb-toast header="" [autohide]="false" (hidden)="show = false" style="background-color: #343a40; color: #f8f9fa; border-radius: 10px;">
+        Application Updated
+      </ngb-toast> -->
+    </div>
+  </div>
+  

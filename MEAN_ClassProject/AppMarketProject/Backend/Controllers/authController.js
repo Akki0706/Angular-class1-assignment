@@ -18,7 +18,7 @@ exports.login=async(req,res)=>{
             token,
             email
         }
-        res.status(200).json({message:'User Login Successfully'});
+        res.json(token);
     }catch(error){
         res.status(500).json({message:error.message});
     }

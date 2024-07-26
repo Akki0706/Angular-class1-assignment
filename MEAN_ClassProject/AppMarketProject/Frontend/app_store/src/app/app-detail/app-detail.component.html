@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h2>App Details</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text"><strong>User ID:</strong> {{ appdetails?.user_id }}</p>
+      <p class="card-text"><strong>App Name:</strong> {{ appdetails?.app_name }}</p>
+      <p class="card-text"><strong>Description:</strong> {{ appdetails?.description }}</p>
+      <p class="card-text"><strong>Release Date:</strong> {{ appdetails?.release_date }}</p>
+      <p class="card-text"><strong>Version:</strong> {{ appdetails?.version }}</p>
+      <p class="card-text"><strong>Genre:</strong> {{ appdetails?.genre }}</p>
+      <p class="card-text"><strong>Visibility:</strong> {{ appdetails?.visibility }}</p>
+      <p class="card-text"><strong>Average Rating:</strong> {{ appdetails?.averageRating }}</p>
+      <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+    </div>
+
+
+  <ng-container *ngIf="appdetails?.comments?.length">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let comment of appdetails?.comments">
+        <div class="picsum-img-wrapper">
+          <img [src]="images[0]" alt="Random slide" />
+        </div>
+        <div class="carousel-caption">
+          <h3>{{ comment.user_id }}</h3>
+          <p>{{ comment.statement }}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </ng-container>
+</div>
+</div>

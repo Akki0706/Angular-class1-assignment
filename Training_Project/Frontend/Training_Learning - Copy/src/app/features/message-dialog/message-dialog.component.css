@@ -1,0 +1,88 @@
+/* Styling for the dialog header */
+.dialog-header {
+    background-color: #3f51b5; /* Primary color */
+    color: white;
+    padding: 16px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title styling */
+  .mat-dialog-title {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  /* Content styling */
+  mat-dialog-content {
+    padding: 24px;
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* Actions container styling */
+  mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  /* Button styling */
+  .ok-button {
+    background-color: #3f51b5; /* Primary color */
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0 8px; /* Add spacing between buttons if multiple */
+  }
+  
+  /* Button hover state */
+  .ok-button:hover {
+    background-color: #303f9f; /* Darker shade of primary color */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  /* Positioning and styling for the dialog container */
+  .mat-dialog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 10%; /* Position closer to the top */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; /* Rounded corners for the dialog */
+  }
+  
+  /* Container for dialog content */
+  .dialog-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Container for dialog actions */
+  .dialog-actions-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  

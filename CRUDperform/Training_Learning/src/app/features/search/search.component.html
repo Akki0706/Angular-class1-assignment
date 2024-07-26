@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <label for="search">Search Apps: </label>
+    <input #searchBox id="search" (input)="search(searchBox.value)" />
+  </div>
+    <ul>
+      <li *ngFor="let n of apps | async">
+        <a routerLink="/detail/{{ n.id }}">{{ n.app_name }}</a>
+      </li>
+    </ul>
+  </div>

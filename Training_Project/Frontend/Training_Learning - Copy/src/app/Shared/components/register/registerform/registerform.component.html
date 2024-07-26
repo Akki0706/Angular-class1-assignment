@@ -1,0 +1,55 @@
+
+            <h3>Register</h3>
+      
+          <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" formControlName="username" class="form-control" [ngClass]="{'is-invalid': submitted && username?.errors}">
+                <div *ngIf="submitted && username?.errors" class="invalid-feedback">
+                  <div *ngIf="username?.errors?.['required']">Username is required</div>
+                  <div *ngIf="username?.errors?.['pattern']">Only Alphabets allowed</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email" class="form-control" [ngClass]="{'is-invalid': submitted && email?.errors}">
+                <div *ngIf="submitted && email?.errors" class="invalid-feedback">
+                  <div *ngIf="email?.errors?.['required']">Email is required</div>
+                  <div *ngIf="email?.errors?.['email']">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid': submitted && password?.errors}">
+                <div *ngIf="submitted && password?.errors" class="invalid-feedback">
+                  <div *ngIf="password?.errors?.['required']">Password is required</div>
+                  <div *ngIf="password?.errors?.['pattern']">
+                    <span class="text-danger">
+                      <ul>
+                        <li>Must contain at least 1 Uppercase</li>
+                        <li>Must contain at least 1 Lowercase</li>
+                        <li>Must contain at least 1 Number</li>
+                        <li>Must contain at least 1 Symbol (allowed: !#$%^&*_=+-)</li>
+                        <li>Min 8 chars and Max 12 chars</li>
+                      </ul>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" formControlName="role" class="form-control" [ngClass]="{'is-invalid': submitted && role?.errors}">
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+                <div *ngIf="submitted && role?.errors" class="invalid-feedback">
+                  <div *ngIf="role?.errors?.['required']">Role is required</div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mt-3">Register</button>
+              <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+            </form>
+          </div>
+      
+

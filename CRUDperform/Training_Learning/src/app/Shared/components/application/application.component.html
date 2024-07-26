@@ -1,0 +1,64 @@
+
+<div class="container" style="width: 1000px;">
+
+  <h3>Application List</h3>
+
+
+  <div class="mb-3">
+    <p>Filter</p>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Type to filter">
+  </div>
+
+  <div class="table-container ">
+    <mat-table [dataSource]="dataSource" matSort>
+
+    
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let l">{{ l.id }}</mat-cell>
+      </ng-container>
+
+     
+      <ng-container matColumnDef="img">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+        <mat-cell *matCellDef="let l" class="text-center">
+          <img [src]="l.img" alt="{{ l.app_name }}" class="img-fluid" style="max-height: 100px; object-fit: cover;">
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="app_name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>App Name</mat-header-cell>
+        <mat-cell *matCellDef="let l">
+          <a [routerLink]="'/app/' + l.id" class="text-decoration-none app-link">{{ l.app_name }}</a>
+        </mat-cell>
+      </ng-container>
+
+     
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-button (click)="sortData('description')">Description</button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let l">{{ l.description }}</mat-cell>
+      </ng-container>
+
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let l">
+          <div class="d-flex justify-content-between">
+            <button mat-raised-button color="warn" (click)="delete(l)">Delete</button>
+            <button mat-raised-button color="primary" [routerLink]="'/update/' + l.id">Update</button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
