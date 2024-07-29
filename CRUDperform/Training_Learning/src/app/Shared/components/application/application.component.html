@@ -1,7 +1,8 @@
 
-<div class="container" style="width: 1000px;">
+<div class="container" style="width: 1000px;" [ngClass]="theme=='dark'?'dark':''">
 
   <h3>Application List</h3>
+  <app-theme></app-theme>
 
 
   <div class="mb-3">

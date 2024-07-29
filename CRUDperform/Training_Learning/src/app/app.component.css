@@ -88,3 +88,12 @@ width: 40%;
   margin-top: 80px;
   width: 100%;
 }
+
+.card[_ngcontent-ng-c94741079] {
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  margin-top: 80px;
+  width: 100%;
+}

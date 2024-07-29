@@ -1,0 +1,45 @@
+.app-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  .app-details {
+    margin-bottom: 20px;
+  }
+
+  .app-id,
+  .app-name,
+  .app-description {
+    display: block;
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+
+  .app-name {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .app-description {
+    color: #666;
+  }
+
+  .back-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-button:hover {
+    background-color: #0056b3;
+  }

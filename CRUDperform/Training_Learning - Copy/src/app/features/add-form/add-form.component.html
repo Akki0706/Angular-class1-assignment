@@ -1,0 +1,44 @@
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card" style="max-width: 800px; width: 90%; background-color: #f8f9fa; border-radius: 15px; box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);">
+      <div class="card-header" style="background-color: #343a40; color: white; border-radius: 15px 15px 0 0; padding: 15px;">
+        <h2 style="margin-bottom: 0;">Create Application</h2>
+      </div>
+      <div class="card-body" style="padding: 20px;">
+        <form [formGroup]="appform" (ngSubmit)="onsubmit()">
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">App Name</label>
+            <input formControlName="app_name" type="text" class="form-control" style="border-color: #343a40;">
+            <div *ngIf="app_name?.invalid && app_name?.touched">
+              <small class="text-danger" *ngIf="app_name?.errors?.['required']" style="color: red;">Enter Appname</small>
+              <small class="text-danger" *ngIf="app_name?.errors?.['minlength']" style="color: red;">Type at least four characters to complete the name.</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">Description</label>
+            <textarea class="form-control" placeholder="Write description here........." id="floatingTextarea" formControlName="description" style="border-color: #343a40;"></textarea>
+            <div *ngIf="description?.invalid && description?.touched">
+              <small class="text-danger" *ngIf="description?.errors?.['required']" style="color: red;">Enter Description......</small>
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label style="color: #343a40;">Image</label>
+            <input [class.is-invalid]="img?.invalid && img?.touched" formControlName="img" type="text" id="Image" class="form-control" style="border-color: #343a40;">
+            <div *ngIf="img?.invalid && img?.touched">
+              <small class="text-danger" *ngIf="img?.errors?.['required']" style="color: red;">Image is required....</small>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary"  style="background-color: #343a40;">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999;" *ngIf="show">
+      <!-- <ngb-toast header="" [autohide]="false" (hidden)="show = false" style="background-color: #343a40; color: #f8f9fa; border-radius: 10px;">
+        Application created successfully
+      </ngb-toast> -->
+    </div>
+  </div>
+  

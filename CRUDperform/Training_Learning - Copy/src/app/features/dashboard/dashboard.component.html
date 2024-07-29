@@ -1,0 +1,17 @@
+<p>My Dashboard</p>
+
+<div class="app-list mt-4">
+  <h4>Available Apps</h4>
+  <div *ngFor="let app of apps" class="app-card">
+    <h5>{{ app.name }}</h5>
+    <p>{{ app.description }}</p>
+    <p><strong>Release Date:</strong> {{ app.releaseDate }}</p>
+    <p><strong>Version:</strong> {{ app.version }}</p>
+  </div>
+</div>
+
+<mat-paginator [length]="30"
+              [pageSize]="3"
+              [pageSizeOptions]="[3, 6, 15, 30]"
+              aria-label="Select page">
+</mat-paginator>
