@@ -1,0 +1,30 @@
+<div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="onsubmit()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Task Name</mat-label>
+        <input matInput formControlName="name" placeholder="Task Name">
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="startPicker" formControlName="startDate" placeholder="Choose start date">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="endPicker" formControlName="endDate" placeholder="Choose end date">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Duration (hours)</mat-label>
+        <input matInput formControlName="duration" placeholder="Duration" [attr.disabled]="true">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Add Task</button>
+    </form>
+  </div>
+  

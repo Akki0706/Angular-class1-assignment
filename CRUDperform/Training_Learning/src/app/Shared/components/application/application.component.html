@@ -2,25 +2,25 @@
 <div class="container" style="width: 1000px;" [ngClass]="theme=='dark'?'dark':''">
 
   <h3>Application List</h3>
-  <app-theme></app-theme>
 
 
-  <div class="mb-3">
+
+  <div class="mb-3" [ngClass]="theme=='dark'?'dark':''">
     <p>Filter</p>
     <input matInput (keyup)="applyFilter($event)" placeholder="Type to filter">
   </div>
 
-  <div class="table-container ">
+  <div class="table-container " [ngClass]="theme=='dark'?'dark':''">
     <mat-table [dataSource]="dataSource" matSort>
 
     
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="id" [ngClass]="theme=='dark'?'dark':''">
         <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
         <mat-cell *matCellDef="let l">{{ l.id }}</mat-cell>
       </ng-container>
 
      
-      <ng-container matColumnDef="img">
+      <ng-container matColumnDef="img" [ngClass]="theme=='dark'?'dark':''">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
         <mat-cell *matCellDef="let l" class="text-center">
           <img [src]="l.img" alt="{{ l.app_name }}" class="img-fluid" style="max-height: 100px; object-fit: cover;">
@@ -28,7 +28,7 @@
       </ng-container>
 
 
-      <ng-container matColumnDef="app_name">
+      <ng-container matColumnDef="app_name" [ngClass]="theme=='dark'?'dark':''">
         <mat-header-cell *matHeaderCellDef mat-sort-header>App Name</mat-header-cell>
         <mat-cell *matCellDef="let l">
           <a [routerLink]="'/app/' + l.id" class="text-decoration-none app-link">{{ l.app_name }}</a>
@@ -36,15 +36,15 @@
       </ng-container>
 
      
-      <ng-container matColumnDef="description">
+      <ng-container matColumnDef="description" [ngClass]="theme=='dark'?'dark':''">
         <mat-header-cell *matHeaderCellDef>
           <button mat-button (click)="sortData('description')">Description</button>
         </mat-header-cell>
-        <mat-cell *matCellDef="let l">{{ l.description }}</mat-cell>
+        <mat-cell *matCellDef="let l"[ngClass]="theme=='dark'?'dark':''">{{ l.description }}</mat-cell>
       </ng-container>
 
   
-      <ng-container matColumnDef="actions">
+      <ng-container matColumnDef="actions" [ngClass]="theme=='dark'?'dark':''">
         <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
         <mat-cell *matCellDef="let l">
           <div class="d-flex justify-content-between">
@@ -54,11 +54,11 @@
         </mat-cell>
       </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="theme=='dark'?'dark':'light'"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
 
-    <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[2, 4, 8]" showFirstLastButtons [ngClass]="theme=='dark'?'dark':''"></mat-paginator>
   </div>
 </div>
 

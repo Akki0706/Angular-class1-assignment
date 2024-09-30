@@ -1,0 +1,440 @@
+/* .nav-link{
+    color: black;
+}
+.btn{
+    background-color: blue;
+    color: white;
+}
+.imgstyle{
+    width: 30px;
+    height: 30px;
+}
+.navbar .navbar-brand {
+    position: relative;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: left 50%;
+    padding-left: 130px;
+    font-size: 20px;
+    letter-spacing: -0.2px;
+    font-weight: 600;
+    color: var(--header-foreground);
+    min-height: 58px;
+    padding-top: 19px;
+    line-height: 20px;
+    text-decoration: none;
+    font-weight: 450;
+}
+.navbar navbar-expand-lg navbar-light bg-light rounded{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.btn{
+    text-align: right;
+    margin-left: 300px;
+    margin-right: 60px;
+}
+.button{
+    text-align: left;
+    margin-left: 10px;
+    display: flex;
+  
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+.sub-main{
+    display: flex;
+    flex-direction: row;
+    padding-left: 120px;
+}
+.mid-para{
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 370px;
+    padding-top: 15px;
+}
+.image{
+    padding-left: 90px;
+    padding-top: 16px;
+}
+.img{
+    width: 700px;
+    height: 450px;
+}
+.para1{
+    font-size: 55px;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 15px;
+}
+.upper-para{
+font-size: small;
+border-radius: 8px;
+font-weight: 200;
+
+border: 1px solid grey;
+
+padding: 3px 3px 3px 3px;
+margin-top: 45px;
+width: 320px;
+}
+.mybtn{
+    background-color: #0078D4;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    font-size: 18px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px none;
+    margin-top: 20px;
+}
+.web1{
+    font-weight: 500;
+    margin-top: 10px;
+}
+.web2{
+    font-size: small;
+}
+.toggleimg{
+    width: 20px;
+    height: 20px;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+.Search{
+    display: flex;
+    flex-direction: row;
+
+}
+/* Example styles for themes */
+body.light-theme {
+    background-color: white;
+    color: black;
+  }
+  
+  body.dark-theme {
+    background-color: #2c2c2c;
+    color: white;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+  
+    cursor: pointer;
+    color: #333;
+    margin-left: 400px;
+  }
+  
+  .close-button:hover {
+    color: #beb3b3;
+  }
+  
+  .hidden-text {
+    visibility: hidden;
+  }
+  .btn:hover{
+    background-color: rgb(57, 109, 206);
+  }
+  .mybtn:hover{
+    background-color: #074f86;
+  }
+  
+  
+
+
+
+
+
+
+ /* Base styles */
+.nav-link{
+    color: black;
+}
+
+.btn{
+    background-color: blue;
+    color: white;
+    text-align: right;
+    margin-left: 300px;
+    margin-right: 60px;
+}
+
+.imgstyle{
+    width: 30px;
+    height: 30px;
+}
+
+.navbar .navbar-brand {
+    position: relative;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: left 50%;
+    padding-left: 130px;
+    font-size: 20px;
+    letter-spacing: -0.2px;
+    font-weight: 600;
+    color: var(--header-foreground);
+    min-height: 58px;
+    padding-top: 19px;
+    line-height: 20px;
+    text-decoration: none;
+    font-weight: 450;
+}
+
+.navbar navbar-expand-lg navbar-light bg-light rounded{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.button{
+    text-align: left;
+    margin-left: 10px;
+    display: flex;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.sub-main{
+    display: flex;
+    flex-direction: row;
+    padding-left: 120px;
+}
+
+.mid-para{
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 370px;
+    padding-top: 15px;
+}
+
+.image{
+    padding-left: 90px;
+    padding-top: 16px;
+}
+
+.img{
+    width: 700px;
+    height: 450px;
+}
+
+.para1{
+    font-size: 55px;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 15px;
+}
+
+.upper-para{
+    font-size: small;
+    border-radius: 8px;
+    font-weight: 200;
+    border: 1px solid grey;
+    padding: 3px;
+    margin-top: 45px;
+    width: 320px;
+}
+
+.mybtn{
+    background-color: #0078D4;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    font-size: 18px;
+    width: 250px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.web1{
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.web2{
+    font-size: small;
+}
+
+.toggleimg{
+    width: 20px;
+    height: 20px;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+
+.Search{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Example styles for themes */
+body.light-theme {
+    background-color: white;
+    color: black;
+}
+  
+body.dark-theme {
+    background-color: #2c2c2c;
+    color: white;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    margin-left: 400px;
+}
+
+.close-button:hover {
+    color: #beb3b3;
+}
+
+.hidden-text {
+    visibility: hidden;
+}
+
+.btn:hover{
+    background-color: rgb(57, 109, 206);
+}
+
+.mybtn:hover{
+    background-color: #074f86;
+}
+
+/* Media Queries */
+
+/* Mobile view (up to 767px) */
+@media (max-width: 767px) {
+    .navbar .navbar-brand {
+        padding-left: 20px;
+        font-size: 18px;
+    }
+
+    .btn {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100%;
+    }
+
+    .main {
+        margin-bottom: 50px;
+    }
+
+    .sub-main {
+        padding-left: 20px;
+        flex-direction: column;
+    }
+
+    .mid-para {
+        padding-left: 20px;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
+    }
+
+    .para1 {
+        font-size: 40px;
+    }
+
+    .upper-para {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .mybtn {
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .Search {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .toggleimg {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .close-button {
+        margin-left: auto;
+    }
+}
+
+/* Tablet view (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar .navbar-brand {
+        padding-left: 40px;
+        font-size: 20px;
+    }
+
+    .btn {
+        margin-left: 50px;
+        margin-right: 50px;
+        width: auto;
+    }
+
+    .main {
+        margin-bottom: 70px;
+    }
+
+    .sub-main {
+        padding-left: 50px;
+        flex-direction: column;
+    }
+
+    .mid-para {
+        padding-left: 50px;
+        padding-top: 15px;
+        font-size: 16px;
+    }
+
+    .img {
+        width: 90%;
+        height: auto;
+    }
+
+    .para1 {
+        font-size: 45px;
+    }
+
+    .upper-para {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    .mybtn {
+        width: 80%;
+        padding: 12px 24px;
+    }
+
+    .Search {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .toggleimg {
+        margin-left: 5px;
+        margin-top: 7px;
+    }
+
+    .close-button {
+        margin-left: auto;
+    }
+}
+

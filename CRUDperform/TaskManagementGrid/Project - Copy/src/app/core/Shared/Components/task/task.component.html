@@ -1,0 +1,154 @@
+
+<div class="container">
+  <h3 class="task">Task Management</h3>
+
+  <form [formGroup]="form" (ngSubmit)="addTask()">
+
+  <div class="add-form">
+    <div class="form-group">
+      <label for="name">Task Name:</label>
+      <input id="name" matInput formControlName="name">
+    </div>
+  
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input matInput [matDatepicker]="pickerStartDate" id="startDate" formControlName="startDate">
+      <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+      <mat-datepicker #pickerStartDate></mat-datepicker>
+    </div>
+  
+    <div class="form-group">
+      <label for="startTime">Start Time:</label>
+      <input type="time" matInput id="startTime" formControlName="startTime">
+    </div>
+  
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input matInput [matDatepicker]="pickerEndDate" [min]="minEndDate" id="endDate" formControlName="endDate">
+      <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+      <mat-datepicker #pickerEndDate></mat-datepicker>
+    </div>
+  
+    <div class="form-group">
+      <label for="endTime">End Time:</label>
+      <input type="time" matInput id="endTime" formControlName="endTime">
+    </div>
+  </div>
+  
+
+ 
+
+    <button mat-raised-button color="primary" type="submit">Add Task</button>
+  </form>
+
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Task Name</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="editingTaskId === element.id && editingField === 'name'; else staticName">
+            <input matInput [(ngModel)]="element.name" (blur)="saveEdit(element, 'name', element.name)">
+          </ng-container>
+          <ng-template #staticName>
+            <span>{{ element.name }}</span>
+            <button mat-icon-button color="primary" (click)="startEdit(element.id, 'name')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </ng-template>
+        </td>
+      </ng-container>
+      
+
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef>Start Date</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="editingTaskId === element.id && editingField === 'startDate'; else staticStartDate">
+            <input matInput [matDatepicker]="pickerStartDate" [(ngModel)]="element.startDate" 
+                   (dateChange)="saveEdit(element, 'startDate', element.startDate)" 
+                   (ngModelChange)="minEndDate = element.startDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStartDate></mat-datepicker>
+          </ng-container>
+          <ng-template #staticStartDate>
+            <span>{{ element.startDate | date: 'short' }}</span>
+            <button mat-icon-button color="primary" (click)="startEdit(element.id, 'startDate')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </ng-template>
+        </td>
+      </ng-container>
+      
+
+
+      <ng-container matColumnDef="startTime">
+        <th mat-header-cell *matHeaderCellDef>Start Time</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="editingTaskId === element.id && editingField === 'startTime'; else staticStartTime">
+            <input type="time" matInput [(ngModel)]="element.startTime" (blur)="saveEdit(element, 'startTime', element.startTime)">
+          </ng-container>
+          <ng-template #staticStartTime>
+            <span>{{ element.startTime }}</span>
+            <button mat-icon-button color="primary" (click)="startEdit(element.id, 'startTime')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </ng-template>
+        </td>
+      </ng-container>
+      
+    
+       <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef>End Date</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="editingTaskId === element.id && editingField === 'endDate'; else staticEndDate">
+            <input matInput [matDatepicker]="pickerEndDate" [(ngModel)]="element.endDate"
+                   [min]="element.startDate" (dateChange)="saveEdit(element, 'endDate', element.endDate)">
+            <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEndDate></mat-datepicker>
+          </ng-container>
+          <ng-template #staticEndDate>
+            <span>{{ element.endDate | date: 'short' }}</span>
+            <button mat-icon-button color="primary" (click)="startEdit(element.id, 'endDate')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </ng-template>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="endTime">
+        <th mat-header-cell *matHeaderCellDef>End Time</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="editingTaskId === element.id && editingField === 'endTime'; else staticEndTime">
+            <input type="time" matInput [(ngModel)]="element.endTime" (blur)="saveEdit(element, 'endTime', element.endTime)">
+          </ng-container>
+          <ng-template #staticEndTime>
+            <span>{{ element.endTime }}</span>
+            <button mat-icon-button color="primary" (click)="startEdit(element.id, 'endTime')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </ng-template>
+        </td>
+      </ng-container>
+      
+
+      <ng-container matColumnDef="duration">
+        <th mat-header-cell *matHeaderCellDef>Duration</th>
+        <td mat-cell *matCellDef="let element">{{element.duration}} hrs</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn" (click)="removeData(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div> 
+
+ 
